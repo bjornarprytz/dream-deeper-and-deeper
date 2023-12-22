@@ -1,19 +1,31 @@
 # dream-deeper-and-deeper
 
+## Themes
+
+- Dream
+- "Deeper and deeper"
+- Stipulation:
+  - Procedural art
+  - Kid-friendly
+
+## Concept #1 Fractal Tablecloth
+
+"An infinite walking-sim in mundane, procedural fractal dreamscapes"
+
+The player plays a character of a certain color (let's say red). They inhabit the flat world of a tablecloth. That is, it's inside the pattern itself. The world will have many colors, but the player color is reserved, and the background is white.
+
+This flatworld has some movement, and a few creatures here and there. And it's dripping with magic. Spillage from food and drinks are magic in this realm.
+
+### Procedural Generation
+
+Each world will have its "fauna" of shapes (circle, square, triangle, maybe other polygons?). A 3 color palette of pastelle is chosen randomly. The fauna will have some simple AI to decide movement. Maybe some creatures are interested in the player, and maybe some flock together. Maybe others are dormant until something happens. They should all react to the player somehow, either by running away, or following. There is no violence in this game. Magic can affect the world, but never kill anything.
+
+Movement should be very relaxed at first, but as the player moves deeper into the fractal, the parameters get increasingly volatile
+
+Transitions between the worlds should be related to the magic. Maybe the player needs to fill a few flasks of paint in order to draw the portal they need. Maybe they get to mix the colors for the next palette, and the palette is used as the seed for the procedural generation.
+
 ## TODO
 
-- Create Godot project (name it dream-deeper-and-deeper)
-  - ProjectSettings
-    - Display/Window/Resizable = false
-    - Display/Window/Stretch/Mode = "viewport"
-- Setup itch.io page for dream-deeper-and-deeper [link](https://itch.io/game/new)
-  - Set Kind to HTML
-  - Set viewport dimensions (normal: 1152x648)
-  - Check SharedArrayBuffer
-  - Hit the Save button
-- Get Butler API key from [itch.io](https://itch.io/user/settings/api-keys)
-- Publish github repo
-- Add key to GitHub secrets as BUTLER_API_KEY [link](https://github.com/bjornarprytz/dream-deeper-and-deeper/settings/secrets/actions)
 - Push release with `./push_release.sh`
 
 ### Extra

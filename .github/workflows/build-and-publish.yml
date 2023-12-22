@@ -10,7 +10,7 @@ env:
   ITCHIO_USERNAME: thewarlock
   GAME_NAME: dream-deeper-and-deeper
   PROJECT_PATH: "./src/"
-  GODOT_VERSION: 
+  GODOT_VERSION: 4.2.1
 
 jobs:
   export-game:
