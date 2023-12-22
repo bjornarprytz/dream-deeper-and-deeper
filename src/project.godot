@@ -11,7 +11,9 @@ config_version=5
 [application]
 
 config/name="DreamDeeperAndDeeper"
+run/main_scene="res://main.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
+boot_splash/bg_color=Color(0.160784, 0.596078, 0.462745, 1)
 config/icon="res://icon.svg"
 
 [display]
@@ -22,6 +24,11 @@ window/stretch/mode="viewport"
 [dotnet]
 
 project/assembly_name="DreamDeeperAndDeeper"
+
+[physics]
+
+2d/default_gravity=0.0
+2d/default_linear_damp=0.5
 
 [rendering]
 

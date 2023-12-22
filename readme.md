@@ -24,7 +24,40 @@ Movement should be very relaxed at first, but as the player moves deeper into th
 
 Transitions between the worlds should be related to the magic. Maybe the player needs to fill a few flasks of paint in order to draw the portal they need. Maybe they get to mix the colors for the next palette, and the palette is used as the seed for the procedural generation.
 
+#### Fauna
+
+- Tri
+  - Inquisitive
+  - Mischievous
+  - Loner
+  - Dances
+- Quad
+  - Flocking
+  - Dances
+  - Grasses on Flowers
+- Circ
+  - Sings
+  - Picks Flowers for braiding
+
+#### Flora
+
 ## TODO
+
+- Critters
+  - Behaviour
+  - State Machine
+  - Color
+  - Scale
+  - Flock behaviour
+  - Emotes
+    - Shake
+    - Inflate
+    - Deflate
+    - Dance
+    - Change Color
+- Flora
+  - Pollen
+  - Brush By
 
 - Push release with `./push_release.sh`
 

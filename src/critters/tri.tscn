@@ -1,0 +1,37 @@
+[gd_scene load_steps=3 format=3 uid="uid://bnmy7i4v1upqs"]
+
+[ext_resource type="Script" path="res://critters/tri.gd" id="1_wrtmk"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0cl0h"]
+radius = 121.807
+
+[node name="Tri" type="Area2D"]
+rotation = 0.000459498
+script = ExtResource("1_wrtmk")
+
+[node name="Shape" type="Polygon2D" parent="."]
+rotation = 1.57079
+scale = Vector2(1.70968, 1.70968)
+offset = Vector2(-2, -15.9622)
+polygon = PackedVector2Array(-16, 30, 20, 30, 2, -1)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(27.9986, -3.01287)
+rotation = 1.57079
+scale = Vector2(1.70968, 1.70968)
+polygon = PackedVector2Array(-16.3773, 30.4151, 19.8868, 30.4151, 1.75471, -0.584904)
+
+[node name="Senses" type="Area2D" parent="."]
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Senses"]
+shape = SubResource("CircleShape2D_0cl0h")
+metadata/_edit_lock_ = true
+
+[node name="Line2D" type="Line2D" parent="."]
+points = PackedVector2Array(27, -0.0124064, 0, 0)
+width = 2.0
+default_color = Color(0.0117647, 0.0117647, 0.0117647, 1)
+
+[connection signal="body_entered" from="Senses" to="." method="_on_senses_body_entered"]
+[connection signal="body_exited" from="Senses" to="." method="_on_senses_body_exited"]

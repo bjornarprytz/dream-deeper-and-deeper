@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://dwa3p2upkqt2s"]
+
+[ext_resource type="PackedScene" uid="uid://bnmy7i4v1upqs" path="res://critters/tri.tscn" id="1_odnek"]
+[ext_resource type="PackedScene" uid="uid://ccthk6lgcm7y" path="res://player/player.tscn" id="2_xnexx"]
+[ext_resource type="PackedScene" uid="uid://dcyswhpnrau34" path="res://critters/pentagonia.tscn" id="3_rl30f"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Tri" parent="." instance=ExtResource("1_odnek")]
+position = Vector2(220, 73)
+
+[node name="Player" parent="." instance=ExtResource("2_xnexx")]
+position = Vector2(239, 246)
+
+[node name="Pentagonia" parent="." instance=ExtResource("3_rl30f")]
+position = Vector2(494, 186)
+
+[node name="Pentagonia2" parent="." instance=ExtResource("3_rl30f")]
+position = Vector2(572, 262)

@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://dcyswhpnrau34"]
+
+[ext_resource type="Script" path="res://critters/pentagonia.gd" id="1_m28qs"]
+
+[node name="Pentagonia" type="Node2D"]
+script = ExtResource("1_m28qs")
+
+[node name="Bud" type="Area2D" parent="."]
+
+[node name="Polygon2D" type="Polygon2D" parent="Bud"]
+offset = Vector2(0, 5)
+polygon = PackedVector2Array(28, -12, 18, 19, -18, 19, -28, -13, 0, -34)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Bud"]
+position = Vector2(0, 5)
+polygon = PackedVector2Array(28, -12, 18, 19, -18, 19, -28, -13, 0, -34)
