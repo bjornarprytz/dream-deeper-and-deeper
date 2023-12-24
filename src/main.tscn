@@ -6,9 +6,6 @@
 
 [node name="Node2D" type="Node2D"]
 
-[node name="Tri" parent="." instance=ExtResource("1_odnek")]
-position = Vector2(220, 73)
-
 [node name="Player" parent="." instance=ExtResource("2_xnexx")]
 position = Vector2(239, 246)
 
@@ -17,3 +14,6 @@ position = Vector2(494, 186)
 
 [node name="Pentagonia2" parent="." instance=ExtResource("3_rl30f")]
 position = Vector2(572, 262)
+
+[node name="Tri" parent="." instance=ExtResource("1_odnek")]
+position = Vector2(167, 71)
