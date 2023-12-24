@@ -1,3 +1,4 @@
+class_name TriNose
 extends Polygon2D
 
 
@@ -5,9 +6,20 @@ extends Polygon2D
 @onready var right_nostril : Node2D = $RightNostril
 @onready var nose_tip : Node2D = $Tip
 
-
 var curve : Curve2D = Curve2D.new()
 var nose_tip_root : Vector2
+var wiggle : bool:
+	get:
+		return wiggle
+	set(value):
+		wiggle = value
+		if !wiggle:
+			var tween = create_tween()
+			tween.tween_method(_wiggle_step, nose_tip.position.y - nose_tip_root.y, 0, 0.2)
+		
+
+@export var eagerness := 30.0
+@export var flappyness := 10.0
 
 func _ready() -> void:
 	
@@ -25,9 +37,12 @@ var _time_spent : float
 
 func _process(delta: float) -> void:
 	_time_spent += delta
-	nose_tip.position.y = nose_tip_root.y + (pingpong((_time_spent * 30.0), 20.0) - 10.0)
+	if wiggle:
+		_wiggle_step((pingpong((_time_spent * eagerness), flappyness*2.0) - flappyness))
+
+func _wiggle_step(d: float):
+	nose_tip.position.y = nose_tip_root.y + d
 	queue_redraw()
-	
 
 func _draw() -> void:
 	curve.set_point_position(2, nose_tip.position)
