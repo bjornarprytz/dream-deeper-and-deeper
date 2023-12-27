@@ -16,7 +16,7 @@ void fragment() {
     vec3 c = textureLod(screen_texture, uv, 0.0).rgb;
     float noise = texture(weave_noise, wrapped_uv).r * 0.1;
 
-    COLOR.rgb = mix(c, vec3(1.0), noise);
+    COLOR.rgb = mix(c, vec3(0.0), noise);
 }
 
 

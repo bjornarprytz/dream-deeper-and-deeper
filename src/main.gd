@@ -1,10 +1,9 @@
 extends Node2D
 
-
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	Global.chunk_changed.connect(_on_new_chunk)
+	
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	$Camera2D.position = $Player.position
+
+func _on_new_chunk(chunk_coords: Vector2i):
+	pass

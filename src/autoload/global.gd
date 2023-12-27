@@ -14,14 +14,18 @@ var current_chunk_coord : Vector2i = Vector2i.ZERO
 
 func get_chunk_size():
 	return get_viewport().size
-
-func _update_chunk_coord() -> void:
+	
+func get_current_chunk(global_pos : Vector2) -> Vector2i:
 	var chunk_size = get_chunk_size()
 	
-	assert(player != null)
 	assert(chunk_size.x != 0 and chunk_size.y != 0)
 	
-	var new_coord := Vector2i(floor(player.global_position.x / chunk_size.x), floor(player.global_position.y / chunk_size.y))
+	return Vector2i(floor(global_pos.x / chunk_size.x), floor(global_pos.y / chunk_size.y))
+
+func _update_chunk_coord() -> void:	
+	assert(player != null)
+	
+	var new_coord := get_current_chunk(player.global_position)
 	
 	var should_emit_signal = new_coord != current_chunk_coord
 	

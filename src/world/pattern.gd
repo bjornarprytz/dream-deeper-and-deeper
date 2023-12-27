@@ -14,10 +14,11 @@ func _ready() -> void:
 	_anchor = Vector2(randf_range(0, _chunk_size.x), randf_range(0, _chunk_size.y))
 	
 	Global.chunk_changed.connect(_redraw)
+	
+	modulate = Global.palette_pattern
 
 func _redraw(chunk_coord: Vector2i):
 	queue_redraw()
-	print("Queued redraw for ", chunk_coord)
 
 # Called whenever the node is redrawn
 func _draw() -> void:

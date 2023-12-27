@@ -43,6 +43,9 @@ Transitions between the worlds should be related to the magic. Maybe the player 
 
 ## TODO
 
+- Species
+  - Pent, Hex, Sept, Oct
+  - Tri, Quad, Circ
 - Palette
 - Generation
   - Variation
@@ -50,13 +53,11 @@ Transitions between the worlds should be related to the magic. Maybe the player 
     - Scale
     - Speed
     - Behaviour
-- Species
-  - Pent, Hex, Sept, Oct
-  - Tri, Quad, Circ
 - Behaviour
   - Flocking
   - Interact with the player
-- Infinite Scroll
+- Player
+  - Appearance
 - Mechanics
   - Gather color drops
   - Create portal
@@ -65,16 +66,17 @@ Transitions between the worlds should be related to the magic. Maybe the player 
 
 - Critters
   - Behaviour
-  - State Machine
-  - Color
-  - Scale
-  - Flock behaviour
-  - Emotes
-    - Shake
-    - Inflate
-    - Deflate
-    - Dance
-    - Change Color
+    - Flock
+    - Investigate
+    - Back off
+    - Meander
+    - Emote
+      - Shake
+      - Inflate
+      - Deflate
+      - Dance
+      - Change Color
+      - Startled
 - Flora
   - Pollen
   - Brush By
@@ -83,7 +85,10 @@ Transitions between the worlds should be related to the magic. Maybe the player 
 
 ### Nice to have
 
-- "World Space" the weave-pattern shader
+- Background Pattern
+  - Apply palette
+  - "World Space" the weave-pattern shader
+  - Random/varied pattern
 
 ### Extra
 
