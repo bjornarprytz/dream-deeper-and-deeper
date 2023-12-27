@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://dwa3p2upkqt2s"]
+[gd_scene load_steps=10 format=3 uid="uid://dwa3p2upkqt2s"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_gks2g"]
 [ext_resource type="PackedScene" uid="uid://bnmy7i4v1upqs" path="res://critters/tri.tscn" id="1_odnek"]
+[ext_resource type="Script" path="res://background.gd" id="2_cib8y"]
 [ext_resource type="PackedScene" uid="uid://ccthk6lgcm7y" path="res://player/player.tscn" id="2_xnexx"]
 [ext_resource type="PackedScene" uid="uid://dcyswhpnrau34" path="res://critters/pentagonia.tscn" id="3_rl30f"]
 [ext_resource type="Shader" path="res://weave_pattern.gdshader" id="4_qdcl4"]
@@ -15,6 +16,9 @@ shader_parameter/weave_noise = ExtResource("6_ntxyv")
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_gks2g")
+
+[node name="Background" type="Node2D" parent="."]
+script = ExtResource("2_cib8y")
 
 [node name="Player" parent="." instance=ExtResource("2_xnexx")]
 position = Vector2(239, 246)
@@ -40,4 +44,3 @@ grow_vertical = 2
 texture = ExtResource("4_yihy3")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-anchor_mode = 0

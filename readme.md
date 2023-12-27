@@ -44,8 +44,6 @@ Transitions between the worlds should be related to the magic. Maybe the player 
 ## TODO
 
 - Palette
-- Tablecloth Pattern
-  - "World Space" the shader
 - Generation
   - Variation
     - Color
@@ -82,6 +80,10 @@ Transitions between the worlds should be related to the magic. Maybe the player 
   - Brush By
 
 - Push release with `./push_release.sh`
+
+### Nice to have
+
+- "World Space" the weave-pattern shader
 
 ### Extra
 
