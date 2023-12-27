@@ -18,15 +18,15 @@ var wiggle : bool:
 			tween.tween_method(_wiggle_step, nose_tip.position.y - nose_tip_root.y, 0, 0.2)
 		
 
-@export var eagerness := 30.0
-@export var flappyness := 10.0
+@export var eagerness := 50.0
+@export var flappyness := 4.0
 
 func _ready() -> void:
 	
 	nose_tip_root = nose_tip.position
 	
-	var right_in = (nose_tip_root - right_nostril.position) * .25
-	var left_out = (nose_tip_root - left_nostril.position) * .25
+	var right_in = (nose_tip_root - right_nostril.position) * .4
+	var left_out = (nose_tip_root - left_nostril.position) * .4
 	
 	curve.add_point(right_nostril.position, right_in, Vector2.ZERO)
 	curve.add_point(left_nostril.position, Vector2.ZERO, left_out)
@@ -50,7 +50,7 @@ func _draw() -> void:
 	var points : PackedVector2Array = curve.tessellate()
 	var colors: PackedColorArray = []
 	colors.resize(points.size())
-	colors.fill(Color.AQUA)
+	colors.fill(Color.WHITE)
 	polygon = points
 	vertex_colors = colors
 	

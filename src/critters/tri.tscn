@@ -12,10 +12,6 @@ script = ExtResource("1_wrtmk")
 
 [node name="Nose" parent="." instance=ExtResource("2_hfkxj")]
 position = Vector2(14.9963, -8.00689)
-polygon = PackedVector2Array(0, 16, 0, 0, 0, 0, 14, 8, 0, 16, 14, 8)
-vertex_colors = PackedColorArray(0, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1)
-eagerness = 30.0
-flappyness = 10.0
 
 [node name="Shape" type="Polygon2D" parent="."]
 rotation = 1.57079

@@ -1,10 +1,20 @@
-[gd_scene load_steps=4 format=3 uid="uid://dwa3p2upkqt2s"]
+[gd_scene load_steps=9 format=3 uid="uid://dwa3p2upkqt2s"]
 
+[ext_resource type="Script" path="res://main.gd" id="1_gks2g"]
 [ext_resource type="PackedScene" uid="uid://bnmy7i4v1upqs" path="res://critters/tri.tscn" id="1_odnek"]
 [ext_resource type="PackedScene" uid="uid://ccthk6lgcm7y" path="res://player/player.tscn" id="2_xnexx"]
 [ext_resource type="PackedScene" uid="uid://dcyswhpnrau34" path="res://critters/pentagonia.tscn" id="3_rl30f"]
+[ext_resource type="Shader" path="res://weave_pattern.gdshader" id="4_qdcl4"]
+[ext_resource type="Texture2D" uid="uid://kinjlm65kjru" path="res://player/white.png" id="4_yihy3"]
+[ext_resource type="Texture2D" uid="uid://b073ewpp6a3py" path="res://weave-pattern.png" id="6_ntxyv"]
 
-[node name="Node2D" type="Node2D"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0c53m"]
+shader = ExtResource("4_qdcl4")
+shader_parameter/noise_scale = 4.0
+shader_parameter/weave_noise = ExtResource("6_ntxyv")
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_gks2g")
 
 [node name="Player" parent="." instance=ExtResource("2_xnexx")]
 position = Vector2(239, 246)
@@ -17,3 +27,17 @@ position = Vector2(572, 262)
 
 [node name="Tri" parent="." instance=ExtResource("1_odnek")]
 position = Vector2(167, 71)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+material = SubResource("ShaderMaterial_0c53m")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_yihy3")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0

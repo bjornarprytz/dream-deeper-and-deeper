@@ -7,6 +7,9 @@ var player : Player
 var speed : float = 100.0
 var move_direction
 
+func _ready() -> void:
+	modulate = Global.palette_critters[0]
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

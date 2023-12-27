@@ -4,8 +4,6 @@
 
 [node name="Nose" type="Polygon2D"]
 script = ExtResource("1_umbdk")
-eagerness = null
-flappyness = null
 
 [node name="LeftNostril" type="Node2D" parent="."]
 

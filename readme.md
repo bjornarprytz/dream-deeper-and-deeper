@@ -43,6 +43,28 @@ Transitions between the worlds should be related to the magic. Maybe the player 
 
 ## TODO
 
+- Palette
+- Tablecloth Pattern
+  - "World Space" the shader
+- Generation
+  - Variation
+    - Color
+    - Scale
+    - Speed
+    - Behaviour
+- Species
+  - Pent, Hex, Sept, Oct
+  - Tri, Quad, Circ
+- Behaviour
+  - Flocking
+  - Interact with the player
+- Infinite Scroll
+- Mechanics
+  - Gather color drops
+  - Create portal
+
+### Behaviour
+
 - Critters
   - Behaviour
   - State Machine
