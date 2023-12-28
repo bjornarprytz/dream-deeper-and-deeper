@@ -1,3 +1,28 @@
-[gd_scene format=3 uid="uid://b32u018e5vcwy"]
+[gd_scene load_steps=5 format=3 uid="uid://b32u018e5vcwy"]
+
+[ext_resource type="Texture2D" uid="uid://c182d6loiwe08" path="res://player/circle.png" id="1_dkgi7"]
+[ext_resource type="Script" path="res://critters/circ/circ.gd" id="1_jn2c7"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_b08ff"]
+radius = 30.0167
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0yikk"]
+radius = 180.0
 
 [node name="Circ" type="Node2D"]
+script = ExtResource("1_jn2c7")
+
+[node name="Body" type="Sprite2D" parent="."]
+scale = Vector2(0.46875, 0.46875)
+texture = ExtResource("1_dkgi7")
+
+[node name="Collision" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collision"]
+shape = SubResource("CircleShape2D_b08ff")
+
+[node name="Senses" type="Area2D" parent="."]
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Senses"]
+shape = SubResource("CircleShape2D_0yikk")

@@ -23,4 +23,6 @@ func _clean_up_stragglers():
 
 func _populate_chunk(chunk_coord: Vector2i):
 	print("TODO: Populate chunk ", chunk_coord)
+	
+	var seed = rand_from_seed(Global.get_chunk_seed(chunk_coord))
 	pass

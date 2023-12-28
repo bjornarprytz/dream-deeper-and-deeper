@@ -22,7 +22,6 @@ var wiggle : bool:
 @export var flappyness := 4.0
 
 func _ready() -> void:
-	
 	nose_tip_root = nose_tip.position
 	
 	var right_in = (nose_tip_root - right_nostril.position) * .4
@@ -32,6 +31,7 @@ func _ready() -> void:
 	curve.add_point(left_nostril.position, Vector2.ZERO, left_out)
 	curve.add_point(nose_tip.position)
 	
+	wiggle = false
 
 var _time_spent : float
 

@@ -4,23 +4,24 @@
 [ext_resource type="PackedScene" uid="uid://dspia81kvgwbo" path="res://critters/tri/nose.tscn" id="2_hfkxj"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0cl0h"]
-radius = 121.807
+radius = 120.0
 
-[node name="Node2D" type="Node2D"]
+[node name="Tri" type="Node2D"]
 script = ExtResource("1_wrtmk")
 
-[node name="Tri" type="Area2D" parent="."]
+[node name="Collision" type="Area2D" parent="."]
 rotation = 0.000459498
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Tri"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Collision"]
 position = Vector2(27.9986, -3.01287)
 rotation = 1.57079
 scale = Vector2(1.70968, 1.70968)
-polygon = PackedVector2Array(-16.3773, 30.4151, 19.8868, 30.4151, 6.4374, 7.60083, -2.96965, 7.49226)
+polygon = PackedVector2Array(-16.3773, 30.4151, 19.8868, 30.4151, 1.75445, -0.585711)
 metadata/_edit_lock_ = true
 
 [node name="Senses" type="Area2D" parent="."]
 rotation = 0.000459498
+monitorable = false
 metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Senses"]
@@ -38,5 +39,5 @@ offset = Vector2(-2, -15.9622)
 polygon = PackedVector2Array(-16, 30, 20, 30, 6.75812, 7.19453, -2.67978, 7.05963)
 metadata/_edit_lock_ = true
 
-[connection signal="body_entered" from="Senses" to="Tri" method="_on_senses_body_entered"]
-[connection signal="body_exited" from="Senses" to="Tri" method="_on_senses_body_exited"]
+[connection signal="body_entered" from="Senses" to="." method="_on_senses_body_entered"]
+[connection signal="body_exited" from="Senses" to="." method="_on_senses_body_exited"]

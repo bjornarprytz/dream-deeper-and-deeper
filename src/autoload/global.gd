@@ -22,6 +22,16 @@ func get_current_chunk(global_pos : Vector2) -> Vector2i:
 	
 	return Vector2i(floor(global_pos.x / chunk_size.x), floor(global_pos.y / chunk_size.y))
 
+func get_chunk_seed(chunk_coords: Vector2i) -> int:
+	var a : float = (chunk_coords.x + 1337)
+	var b : float
+	if (chunk_coords.y == 0):
+		b = -648.0
+	else:
+		b = chunk_coords.y * -69
+	
+	return int((a / b) * 1000000)
+
 func get_chunk_collection(chunk_coords: Vector2i) -> Array[Vector2i]:
 	var x = chunk_coords.x
 	var y = chunk_coords.y

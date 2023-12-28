@@ -10,7 +10,6 @@ var move_direction
 func _ready() -> void:
 	modulate = Global.palette_critters[0]
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if (player):
@@ -19,7 +18,6 @@ func _process(delta: float) -> void:
 		position = next_pos
 	
 		look_at(player.position)
-
 
 func _on_senses_body_entered(body: Node2D) -> void:
 	if body is Player:

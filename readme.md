@@ -47,7 +47,8 @@ Transitions between the worlds should be related to the magic. Maybe the player 
   - Pent, Hex, Sept, Oct
   - Tri, Quad, Circ
 - Palette
-- Generation
+  - Pastelle
+- Generation (seed with the root seed + chunk_coords)
   - Clean up stragglers outside chunk bounds
   - Variation
     - Color
@@ -71,7 +72,7 @@ Transitions between the worlds should be related to the magic. Maybe the player 
     - Investigate
     - Back off
     - Meander
-    - Emote
+    - Emote (Icon on the body of the critter)
       - Shake
       - Inflate
       - Deflate
