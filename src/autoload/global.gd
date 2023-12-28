@@ -1,7 +1,7 @@
 class_name Static
 extends Node
 
-signal chunk_changed(coords: Vector2i)
+signal chunk_changed(old: Vector2i, new: Vector2i)
 
 var player : Player
 
@@ -22,22 +22,30 @@ func get_current_chunk(global_pos : Vector2) -> Vector2i:
 	
 	return Vector2i(floor(global_pos.x / chunk_size.x), floor(global_pos.y / chunk_size.y))
 
+func get_chunk_collection(chunk_coords: Vector2i) -> Array[Vector2i]:
+	var x = chunk_coords.x
+	var y = chunk_coords.y
+	return [
+		Vector2i(x-1, y-1), Vector2i(x, y-1), Vector2i(x+1, y-1),
+		Vector2i(x-1, y), Vector2i(x, y), Vector2i(x+1, y),
+		Vector2i(x-1, y+1), Vector2i(x, y+1), Vector2i(x+1, y+1)
+	]
+
 func _update_chunk_coord() -> void:	
 	assert(player != null)
 	
 	var new_coord := get_current_chunk(player.global_position)
-	
-	var should_emit_signal = new_coord != current_chunk_coord
-	
+		
+	var old_coord = current_chunk_coord
 	current_chunk_coord = new_coord
 	
-	if (should_emit_signal):
-		chunk_changed.emit(current_chunk_coord)
+	if (old_coord != new_coord):
+		chunk_changed.emit(old_coord, new_coord)
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	palette_character = Color.BLUE
+	palette_character = Color.SKY_BLUE
 	palette_pattern = Color.INDIAN_RED
 	palette_critters = [
 		_random_color(),

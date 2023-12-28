@@ -48,6 +48,7 @@ Transitions between the worlds should be related to the magic. Maybe the player 
   - Tri, Quad, Circ
 - Palette
 - Generation
+  - Clean up stragglers outside chunk bounds
   - Variation
     - Color
     - Scale
