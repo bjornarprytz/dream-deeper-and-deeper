@@ -12,7 +12,7 @@ var palette_plants: Array[Color]
 
 var current_chunk_coord : Vector2i = Vector2i.ZERO
 
-func get_chunk_size():
+func get_chunk_size() -> Vector2:
 	return get_viewport().size
 	
 func get_current_chunk(global_pos : Vector2) -> Vector2i:
@@ -21,6 +21,23 @@ func get_current_chunk(global_pos : Vector2) -> Vector2i:
 	assert(chunk_size.x != 0 and chunk_size.y != 0)
 	
 	return Vector2i(floor(global_pos.x / chunk_size.x), floor(global_pos.y / chunk_size.y))
+
+func get_chunk_rect(chunk_coords: Vector2i) -> Rect2:
+	var pos : Vector2
+	var chunk_size = get_chunk_size()
+	
+	pos.x = chunk_coords.x * chunk_size.x
+	pos.y = chunk_coords.y * chunk_size.y
+	
+	return Rect2(pos, chunk_size)
+
+func get_random_pos_within_chunk(chunk_coords: Vector2i) -> Vector2:
+	var rect = get_chunk_rect(chunk_coords)
+	
+	var x = randf_range(rect.position.x, rect.position.x + rect.size.x)
+	var y = randf_range(rect.position.y, rect.position.y + rect.size.y)
+	
+	return Vector2(x, y)
 
 func get_chunk_seed(chunk_coords: Vector2i) -> int:
 	var a : float = (chunk_coords.x + 1337)

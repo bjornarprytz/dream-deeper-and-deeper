@@ -91,6 +91,8 @@ Transitions between the worlds should be related to the magic. Maybe the player 
   - Apply palette
   - "World Space" the weave-pattern shader
   - Random/varied pattern
+- Generation
+  - Organic meadows
 
 ### Extra
 

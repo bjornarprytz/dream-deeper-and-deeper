@@ -1,3 +1,10 @@
-[gd_scene format=3 uid="uid://b6h51w5pv71r8"]
+[gd_scene load_steps=3 format=3 uid="uid://b6h51w5pv71r8"]
+
+[ext_resource type="Script" path="res://critters/hex/hexipremnum.gd" id="1_5g7sf"]
+[ext_resource type="PackedScene" uid="uid://yp7iioou2jqm" path="res://tools/RegularPolygon.tscn" id="2_8y2kw"]
 
 [node name="Hexipremnum" type="Node2D"]
+script = ExtResource("1_5g7sf")
+
+[node name="Body" parent="." instance=ExtResource("2_8y2kw")]
+n_sides = 6

@@ -1,3 +1,9 @@
-[gd_scene format=3 uid="uid://dephjng2c0o0u"]
+[gd_scene load_steps=3 format=3 uid="uid://dephjng2c0o0u"]
+
+[ext_resource type="Script" path="res://critters/oct/octstera.gd" id="1_vah6k"]
+[ext_resource type="PackedScene" uid="uid://yp7iioou2jqm" path="res://tools/RegularPolygon.tscn" id="2_bs4rj"]
 
 [node name="Octstera" type="Node2D"]
+script = ExtResource("1_vah6k")
+
+[node name="Body" parent="." instance=ExtResource("2_bs4rj")]

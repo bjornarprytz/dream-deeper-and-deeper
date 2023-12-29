@@ -1,26 +1,41 @@
+class_name Spawner
 extends Node
 
-@onready var circ_spawner = preload("res://critters/circ/circ.tscn")
-@onready var tri_spawner = preload("res://critters/tri/tri.tscn")
-@onready var quad_spawner = preload("res://critters/quad/quad.tscn")
-@onready var pent_spawner = preload("res://critters/pent/pentagonia.tscn")
-@onready var hex_spawner = preload("res://critters/hex/hexipremnum.tscn")
-@onready var sept_spawner = preload("res://critters/sept/septodendron.tscn")
-@onready var oct_spawner = preload("res://critters/oct/octstera.tscn")
+@onready var _circ_spawner = preload("res://critters/circ/circ.tscn")
+@onready var _tri_spawner = preload("res://critters/tri/tri.tscn")
+@onready var _quad_spawner = preload("res://critters/quad/quad.tscn")
+@onready var _pent_spawner = preload("res://critters/pent/pentagonia.tscn")
+@onready var _hex_spawner = preload("res://critters/hex/hexipremnum.tscn")
+@onready var _sept_spawner = preload("res://critters/sept/septodendron.tscn")
+@onready var _oct_spawner = preload("res://critters/oct/octstera.tscn")
 
 
-@onready var critter_spawners : Array = [
-	circ_spawner,
-	tri_spawner,
-	quad_spawner
+@onready var _critter_spawners : Array[PackedScene] = [
+	_circ_spawner,
+	_tri_spawner,
+	_quad_spawner
 ]
 
-@onready var flower_spawners : Array = [
-	pent_spawner,
-	hex_spawner,
-	sept_spawner,
-	oct_spawner
+@onready var _flower_spawners : Array[PackedScene] = [
+	_pent_spawner,
+	_hex_spawner,
+	_sept_spawner,
+	_oct_spawner
 ]
 
-func pentagonia() -> Flower:
-	return pent_spawner.instantiate() as Flower
+func flower() -> Flower:
+	return _randomize_flower(
+		_flower_spawners.pick_random().instantiate() as Flower)
+
+func critter() -> Critter:
+	return _randomize_critter(
+		_critter_spawners.pick_random().instantiate() as Critter)
+
+
+static func _randomize_flower(flower: Flower) -> Flower:
+	print("TODO: Randomize flower")
+	return flower
+
+static func _randomize_critter(critter: Critter) -> Critter:
+	print("TODO: Randomize critter")
+	return critter

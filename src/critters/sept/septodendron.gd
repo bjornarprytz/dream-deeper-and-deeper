@@ -1,5 +1,5 @@
-class_name Circ
-extends Critter
+class_name Septodendron
+extends Flower
 
 
 # Called when the node enters the scene tree for the first time.

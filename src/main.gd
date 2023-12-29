@@ -5,6 +5,9 @@ extends Node2D
 # Bias towards clustering (higher values create more clusters)
 @export var cluster_bias := 2.0
 
+@onready var flowers : Node = $Flowers
+@onready var critters : Node = $Critters
+
 func _ready() -> void:
 	Global.chunk_changed.connect(_on_new_chunk)
 
@@ -19,10 +22,23 @@ func _on_new_chunk(_old: Vector2i, _new: Vector2i):
 
 func _clean_up_stragglers():
 	print("TODO: Remove stragglers")
-	pass
 
 func _populate_chunk(chunk_coord: Vector2i):
 	print("TODO: Populate chunk ", chunk_coord)
 	
 	var seed = rand_from_seed(Global.get_chunk_seed(chunk_coord))
-	pass
+	
+	const n_flowers = 6
+	const n_critters = 3
+	
+	for i in range(n_flowers):
+		var flower = Spawn.flower()
+		flowers.add_child(flower)
+		flower.global_position = Global.get_random_pos_within_chunk(chunk_coord)
+	
+	for i in range(n_critters):
+		var critter = Spawn.critter()
+		critters.add_child(critter)
+		critter.global_position = Global.get_random_pos_within_chunk(chunk_coord)
+		
+

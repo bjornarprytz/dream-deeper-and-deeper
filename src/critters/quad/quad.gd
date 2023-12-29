@@ -1,4 +1,5 @@
-extends Node2D
+class_name Quad
+extends Critter
 
 
 # Called when the node enters the scene tree for the first time.

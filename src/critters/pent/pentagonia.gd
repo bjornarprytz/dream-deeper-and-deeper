@@ -1,8 +1,8 @@
-class_name Flower
-extends Node2D
+class_name Pentagonia
+extends Flower
 
 var nearby: Node2D
-@onready var bud : Area2D = $Bud
+@onready var bud : Node2D = $Body
 
 
 var snap_back_tween : Tween

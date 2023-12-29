@@ -1,8 +1,8 @@
-extends Node2D
+class_name Tri
+extends Critter
 
 
 var player : Player
-@onready var nose : TriNose = $Nose
 
 var speed : float = 100.0
 var move_direction
@@ -21,9 +21,7 @@ func _process(delta: float) -> void:
 
 func _on_senses_body_entered(body: Node2D) -> void:
 	if body is Player:
-		nose.wiggle = true
 		player = body
 func _on_senses_body_exited(body: Node2D) -> void:
 	if body == player:
-		nose.wiggle = false
 		player = null

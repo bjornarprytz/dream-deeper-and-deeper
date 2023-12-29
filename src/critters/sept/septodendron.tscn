@@ -1,3 +1,10 @@
-[gd_scene format=3 uid="uid://fovx6k8afa0x"]
+[gd_scene load_steps=3 format=3 uid="uid://fovx6k8afa0x"]
+
+[ext_resource type="Script" path="res://critters/sept/septodendron.gd" id="1_h1soi"]
+[ext_resource type="PackedScene" uid="uid://yp7iioou2jqm" path="res://tools/RegularPolygon.tscn" id="2_q3338"]
 
 [node name="Septodendron" type="Node2D"]
+script = ExtResource("1_h1soi")
+
+[node name="Body" parent="." instance=ExtResource("2_q3338")]
+n_sides = 7

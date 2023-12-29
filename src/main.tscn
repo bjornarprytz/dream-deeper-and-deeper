@@ -18,6 +18,10 @@ script = ExtResource("1_gks2g")
 
 [node name="Background" parent="." instance=ExtResource("2_horkx")]
 
+[node name="Flowers" type="Node" parent="."]
+
+[node name="Critters" type="Node" parent="."]
+
 [node name="Player" parent="." instance=ExtResource("2_xnexx")]
 position = Vector2(239, 246)
 
