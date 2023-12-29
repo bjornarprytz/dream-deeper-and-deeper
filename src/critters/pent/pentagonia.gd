@@ -14,10 +14,12 @@ func _process(delta: float) -> void:
 		bud.position = bud.position - (bud.position) * delta
 
 
-func _on_bud_body_entered(body: Node2D) -> void:
-	nearby = body
+func _on_body_body_entered(body: Node2D) -> void:
+	if (body.owner is Flower):
+		return
+	nearby = body.owner
 
 
-func _on_bud_body_exited(body: Node2D) -> void:
-	if (body == nearby):
+func _on_body_body_exited(body: Node2D) -> void:
+	if (body.owner == nearby):
 		nearby = null

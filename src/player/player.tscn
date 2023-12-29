@@ -12,6 +12,7 @@ script = ExtResource("1_l6ult")
 [node name="Body" parent="." instance=ExtResource("2_hqlah")]
 radius = 16.0
 n_sides = 30
+disable_collider = false
 
 [node name="Nose" type="Line2D" parent="."]
 points = PackedVector2Array(16, 0, 0, 0)

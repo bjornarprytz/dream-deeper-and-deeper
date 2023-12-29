@@ -45,16 +45,12 @@ Transitions between the worlds should be related to the magic. Maybe the player 
 
 - Palette
   - Pastelle
-- Generation (seed with the root seed + chunk_coords)
+- Generation
   - Clean up stragglers outside chunk bounds
-  - Variation
-    - Color
-    - Scale
-    - Speed
-    - Behaviour
 - Behaviour
   - Flocking
   - Interact with the player
+  - Speed
 - Player
   - Appearance
 - Mechanics
