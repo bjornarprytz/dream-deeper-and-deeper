@@ -8,6 +8,8 @@ extends Area2D
 	set(value):
 		if value == radius:
 			return
+		if value < 0.0:
+			value = 1.0
 		
 		radius = value
 		_update_polygon.call_deferred()
@@ -19,16 +21,26 @@ extends Area2D
 		if value == n_sides:
 			return
 		
+		if (value < 3):
+			value = 3
+		
 		n_sides = value
+		_update_polygon.call_deferred()
+
+@export var disable_collider: bool:
+	get:
+		return disable_collider
+	set(value):
+		if (value == disable_collider):
+			return
+		disable_collider = value
 		_update_polygon.call_deferred()
 
 @onready var drawn : Polygon2D = $Drawn
 @onready var collision : CollisionPolygon2D = $Collision
 
 func _update_polygon():
-	if n_sides < 3:
-		n_sides = 3
-		return
+	collision.disabled = disable_collider
 
 	var angle_increment = 2 * PI / n_sides
 

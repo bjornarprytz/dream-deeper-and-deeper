@@ -4,7 +4,6 @@ extends Critter
 
 var player : Player
 
-var speed : float = 100.0
 var move_direction
 
 func _ready() -> void:

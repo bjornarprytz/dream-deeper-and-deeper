@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://ccthk6lgcm7y"]
+[gd_scene load_steps=4 format=3 uid="uid://ccthk6lgcm7y"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_l6ult"]
 [ext_resource type="PackedScene" uid="uid://yp7iioou2jqm" path="res://tools/RegularPolygon.tscn" id="2_hqlah"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kgjvn"]
+radius = 16.0
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_l6ult")
@@ -14,3 +17,6 @@ n_sides = 30
 points = PackedVector2Array(16, 0, 0, 0)
 width = 2.0
 default_color = Color(0, 0, 0, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_kgjvn")

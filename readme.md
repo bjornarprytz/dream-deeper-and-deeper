@@ -43,9 +43,6 @@ Transitions between the worlds should be related to the magic. Maybe the player 
 
 ## TODO
 
-- Species
-  - Pent, Hex, Sept, Oct
-  - Tri, Quad, Circ
 - Palette
   - Pastelle
 - Generation (seed with the root seed + chunk_coords)
