@@ -20,7 +20,6 @@ metadata/_edit_lock_ = true
 
 [node name="Body" parent="." instance=ExtResource("3_14iat")]
 n_sides = 3
-disable_collider = false
 
 [connection signal="body_entered" from="Senses" to="." method="_on_senses_body_entered"]
 [connection signal="body_exited" from="Senses" to="." method="_on_senses_body_exited"]

@@ -8,7 +8,6 @@ script = ExtResource("1_m28qs")
 
 [node name="Body" parent="." instance=ExtResource("2_1vn31")]
 n_sides = 5
-disable_collider = false
 
 [connection signal="body_entered" from="Body" to="." method="_on_body_body_entered"]
 [connection signal="body_exited" from="Body" to="." method="_on_body_body_exited"]
