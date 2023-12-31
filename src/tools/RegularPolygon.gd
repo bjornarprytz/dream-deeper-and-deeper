@@ -28,13 +28,15 @@ extends Area2D
 		_update_polygon.call_deferred()
 
 @export var disable_collider: bool:
-	get:
-		return disable_collider
 	set(value):
 		if (value == disable_collider):
 			return
 		disable_collider = value
 		_update_polygon.call_deferred()
+
+@export var polygon: PackedVector2Array:
+	get:
+		return drawn.polygon
 
 @onready var drawn : Polygon2D = $Drawn
 @onready var collision : CollisionPolygon2D = $Collision

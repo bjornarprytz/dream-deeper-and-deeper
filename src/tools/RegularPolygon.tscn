@@ -5,6 +5,7 @@
 [node name="Body" type="Area2D"]
 script = ExtResource("1_2l3bt")
 n_sides = 8
+polygon = PackedVector2Array(25, 0, 17.6777, 17.6777, 1.53076e-15, 25, -17.6777, 17.6777, -25, 3.06152e-15, -17.6777, -17.6777, -4.59227e-15, -25, 17.6777, -17.6777)
 
 [node name="Drawn" type="Polygon2D" parent="."]
 polygon = PackedVector2Array(25, 0, 17.6777, 17.6777, 1.53076e-15, 25, -17.6777, 17.6777, -25, 3.06152e-15, -17.6777, -17.6777, -4.59227e-15, -25, 17.6777, -17.6777)
