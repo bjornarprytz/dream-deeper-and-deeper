@@ -60,21 +60,49 @@ Transitions between the worlds should be related to the magic. Maybe the player 
 ### Behaviour
 
 - Critters
-  - Behaviour
-    - Flock
-    - Investigate
-    - Back off
+  - Tri
     - Meander
-    - Emote (Icon on the body of the critter)
-      - Shake
-      - Inflate
-      - Deflate
+    - Investigate
       - Dance
+      - Pick Flower
+  - Quad
+    - Meander
+    - Interact
+      - Eat (Flower)
+        - Poop
+      - Flock (Quad)
+  - Circ
+    - Pick Flowers
+    - Plant Seeds
+    - Interact
+      - Sing (Circ, Player, Tri)
+      - Feed (Quad)
+  - Flowers
+    - Charge (build pollen)
+    - Brush by (critter)
+      - Release pollen (if full)
+  - Player
+    - Emote
+      - Squeeze
+        - Scale x and y independently
+        - Bounce back to (1,1) after
+      - Pivot
+        - Set random pivot point within body bounds
+        - Joystic left/right to increase torque around pivot
+        - Settle on rotation (0,0) after
       - Change Color
-      - Startled
+        - Use joystick to navigate an (invisible) color picker
+        - Click joystick to snap back to original color
+        - Slowly regain orignal color too (10 seconds?)
+      - Inflate/deflate
+        - Joystick left/right decreases/increases scale
+        - Bounce back to (1,1) after
+    - Create Portal
 - Flora
-  - Pollen
-  - Brush By
+  - Pollen builds up until full
+  - Brush By:
+    - Release pollen
+    - Grow new plants
 
 - Push release with `./push_release.sh`
 
