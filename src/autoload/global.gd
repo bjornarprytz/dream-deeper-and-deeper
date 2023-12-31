@@ -101,3 +101,22 @@ func _process(delta: float) -> void:
 
 func _random_color() -> Color:
 	return Color(randf(), randf(), randf())
+
+func color_from_unit_circle(point: Vector2) -> Color:
+	# Convert point from Cartesian to polar coordinates
+	var radius = point.length()
+	
+	var angle = atan2(point.y, point.x)
+
+	# Normalize angle to the range [0, 2 * PI]
+	angle = fmod(angle + 2 * PI, 2 * PI)
+
+	# Map normalized angle to hue (0 to 1)
+	var hue = angle / (2 * PI)
+
+	# Map radius to saturation and value (brightness)
+	var saturation = radius
+	var value = 1.0  # You can adjust this value as needed
+
+	# Create and return the color
+	return Color.from_hsv(hue, saturation, value)
