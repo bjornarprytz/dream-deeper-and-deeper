@@ -39,13 +39,13 @@ func bug() -> Bug:
 	)
 
 static func _randomize_flower(flower: Flower) -> Flower:
-	var s = randf_range(.15, .4)
+	var s = randf_range(.3, .5)
 	flower.scale = Vector2(s, s)
 	flower.modulate = Global.palette_plants.pick_random()
 	return flower
 
 static func _randomize_critter(critter: Critter) -> Critter:
-	var s = randf_range(.8, 1.1)
+	var s = randf_range(.9, 1.2)
 	critter.scale = Vector2(s, s)
 	critter.modulate = Global.palette_critters.pick_random()
 	return critter

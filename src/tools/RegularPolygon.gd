@@ -38,11 +38,28 @@ extends Area2D
 	get:
 		return drawn.polygon
 
+@export var border_color: Color:
+	set(value):
+		if (border_color == value):
+			return
+		border_color = value
+		_update_polygon.call_deferred()
+		
+@export var border_width: float:
+	set(value):
+		if (border_width == value):
+			return
+		border_width = value
+		_update_polygon.call_deferred()
+
 @onready var drawn : Polygon2D = $Drawn
 @onready var collision : CollisionPolygon2D = $Collision
+@onready var border : Line2D = $Drawn/Border
 
 func _update_polygon():
 	collision.disabled = disable_collider
+	border.width = border_width
+	border.default_color = border_color
 
 	var angle_increment = 2 * PI / n_sides
 
@@ -56,5 +73,6 @@ func _update_polygon():
 	
 	drawn.polygon = points
 	collision.polygon = points
+	border.points = points
 	
 	drawn.queue_redraw()

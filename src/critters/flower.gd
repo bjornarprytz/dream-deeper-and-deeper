@@ -1,14 +1,10 @@
 class_name Flower
 extends Node2D
 
-
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
+@export var pollen_rate: float = 5.0
+@export var pollen: float = 0.0
+@export var max_pollen: float = 100.0
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	pollen = clamp(pollen + (delta * pollen_rate), 0.0, max_pollen)

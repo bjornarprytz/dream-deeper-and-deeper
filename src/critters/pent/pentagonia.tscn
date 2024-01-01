@@ -9,6 +9,8 @@ script = ExtResource("1_m28qs")
 [node name="Body" parent="." instance=ExtResource("2_1vn31")]
 n_sides = 5
 polygon = PackedVector2Array(25, 0, 7.72542, 23.7764, -20.2254, 14.6946, -20.2254, -14.6946, 7.72542, -23.7764)
+border_color = Color(0.776471, 0.776471, 0.776471, 1)
+border_width = 2.0
 
 [node name="Pattern" type="Polygon2D" parent="Body"]
 clip_children = 1
@@ -18,24 +20,24 @@ polygon = PackedVector2Array(25, 0, 7.72542, 23.7764, -20.2254, 14.6946, -20.225
 scale = Vector2(0.2, 0.2)
 points = PackedVector2Array(25, 0, 7.72542, 23.7764, -20.2254, 14.6946, -20.2254, -14.6946, 7.72543, -23.7764)
 closed = true
-width = 1.0
-default_color = Color(0.262745, 0.262745, 0.262745, 1)
+width = 3.0
+default_color = Color(0.698039, 0.698039, 0.698039, 1)
 joint_mode = 2
 
 [node name="B" type="Line2D" parent="Body/Pattern"]
 scale = Vector2(0.5, 0.5)
 points = PackedVector2Array(25, 0, 7.72542, 23.7764, -20.2254, 14.6946, -20.2254, -14.6946, 7.72543, -23.7764)
 closed = true
-width = 1.0
-default_color = Color(0.262745, 0.262745, 0.262745, 1)
+width = 3.0
+default_color = Color(0.698039, 0.698039, 0.698039, 1)
 joint_mode = 2
 
 [node name="C" type="Line2D" parent="Body/Pattern"]
 scale = Vector2(0.7, 0.7)
 points = PackedVector2Array(25, 0, 7.72542, 23.7764, -20.2254, 14.6946, -20.2254, -14.6946, 7.72543, -23.7764)
 closed = true
-width = 1.0
-default_color = Color(0.262745, 0.262745, 0.262745, 1)
+width = 3.0
+default_color = Color(0.698039, 0.698039, 0.698039, 1)
 joint_mode = 2
 
 [connection signal="body_entered" from="Body" to="." method="_on_body_body_entered"]
