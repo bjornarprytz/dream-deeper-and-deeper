@@ -115,6 +115,8 @@ Transitions between the worlds should be related to the magic. Maybe the player 
   - Brush By:
     - Release pollen
     - Grow new plants
+      - Check proximity of other plants to decide if a seed becomes a plant
+  - Shrivel when overlapping with another flower
 
 - Push release with `./push_release.sh`
 

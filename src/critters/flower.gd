@@ -2,7 +2,7 @@ class_name Flower
 extends Node2D
 
 @export var pollen_rate: float = 5.0
-@export var pollen: float = 0.0
+@export var pollen: float = 100.0
 @export var max_pollen: float = 100.0
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
