@@ -1,10 +1,10 @@
 [gd_scene load_steps=4 format=3 uid="uid://d0d05prhl1hwy"]
 
 [ext_resource type="Script" path="res://critters/bug/bug.gd" id="1_v5cug"]
-[ext_resource type="FontFile" uid="uid://dlb4kcv6rrju8" path="res://critters/bug/JetBrainsMono-VariableFont_wght.ttf" id="2_6mhfp"]
+[ext_resource type="FontFile" uid="uid://dlb4kcv6rrju8" path="res://assets/JetBrainsMono-VariableFont_wght.ttf" id="2_dnbsd"]
 
 [sub_resource type="Theme" id="Theme_5eh2i"]
-default_font = ExtResource("2_6mhfp")
+default_font = ExtResource("2_dnbsd")
 default_font_size = 256
 
 [node name="Bug" type="Node2D"]

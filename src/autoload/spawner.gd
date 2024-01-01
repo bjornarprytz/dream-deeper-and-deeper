@@ -1,6 +1,11 @@
 class_name Spawner
 extends Node
 
+var flowers: Node2D
+var critters: Node2D
+var bugs: Node2D
+
+
 @onready var _circ_spawner = preload("res://critters/circ/circ.tscn")
 @onready var _tri_spawner = preload("res://critters/tri/tri.tscn")
 @onready var _quad_spawner = preload("res://critters/quad/quad.tscn")
@@ -9,8 +14,9 @@ extends Node
 @onready var _sept_spawner = preload("res://critters/sept/septodendron.tscn")
 @onready var _oct_spawner = preload("res://critters/oct/octstera.tscn")
 
-
 @onready var _bug_spawner = preload("res://critters/bug/bug.tscn")
+
+@onready var _seed_spawner = preload("res://critters/seed/seed.tscn")
 
 @onready var _critter_spawners : Array[PackedScene] = [
 	_circ_spawner,
@@ -37,6 +43,9 @@ func bug() -> Bug:
 	return _randomize_bug(
 		_bug_spawner.instantiate() as Bug
 	)
+
+func plant_seed():
+	return _seed_spawner.instantiate() as Seed
 
 static func _randomize_flower(flower: Flower) -> Flower:
 	var s = randf_range(.3, .5)

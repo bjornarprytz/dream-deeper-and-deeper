@@ -30,6 +30,13 @@ func _process(delta: float) -> void:
 
 func _spread_seeds():	
 	pollen_burst.amount = int(pollen / 5.0)
+	
+	var seed = Spawn.plant_seed()
+	add_child.call_deferred(seed)
+	var target = Global.random_vector2().normalized() * randf_range(50.0, 90.0)
+	var seed_tween = create_tween().set_ease(Tween.EASE_OUT)
+	seed_tween.tween_property(seed, "position", target, 1.0)
+	seed_tween.tween_callback(seed.try_root)
 	pollen = 0
 	pollen_burst.emitting = true
 

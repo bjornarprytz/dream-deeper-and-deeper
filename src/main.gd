@@ -6,6 +6,10 @@ extends Node2D
 
 
 func _ready() -> void:
+	Spawn.flowers = flowers
+	Spawn.critters = critters
+	Spawn.bugs = bugs
+	
 	Global.chunk_changed.connect(_on_new_chunk)
 	
 	for chunk in Global.get_chunk_collection(Vector2i(0,0)):

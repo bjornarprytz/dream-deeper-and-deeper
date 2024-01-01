@@ -75,16 +75,16 @@ func _ready() -> void:
 	palette_character = Color.SKY_BLUE
 	palette_pattern = Color.INDIAN_RED
 	palette_critters = [
-		_random_color(),
-		_random_color(),
-		_random_color()
+		random_color(),
+		random_color(),
+		random_color()
 		]
 
 	palette_plants = [
-		_random_color(),
-		_random_color(),
-		_random_color(),
-		_random_color()
+		random_color(),
+		random_color(),
+		random_color(),
+		random_color()
 		]
 
 const REFRESH_INTERVAL := 1.0
@@ -99,8 +99,10 @@ func _process(delta: float) -> void:
 		_update_chunk_coord()
 		_time_acc = 0.0
 
-func _random_color() -> Color:
+func random_color() -> Color:
 	return Color(randf(), randf(), randf())
+func random_vector2() -> Vector2:
+	return Vector2(randf_range(-1.0, 1.0), randf_range(-1.0, 1.0))
 
 func color_from_unit_circle(point: Vector2) -> Color:
 	# Convert point from Cartesian to polar coordinates

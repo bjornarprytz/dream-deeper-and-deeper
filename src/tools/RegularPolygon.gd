@@ -57,7 +57,11 @@ extends Area2D
 @onready var border : Line2D = $Drawn/Border
 
 func _update_polygon():
+	if !is_node_ready():
+		return
+		
 	collision.disabled = disable_collider
+
 	border.width = border_width
 	border.default_color = border_color
 

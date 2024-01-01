@@ -117,6 +117,7 @@ Transitions between the worlds should be related to the magic. Maybe the player 
     - Grow new plants
       - Check proximity of other plants to decide if a seed becomes a plant
   - Shrivel when overlapping with another flower
+    - Remove the root function in favor of the shriveling. Maybe the root func can check to avoid actual overlap over position (0,0), but it could be nice for plants to "adapt" by scaling down
 
 - Push release with `./push_release.sh`
 
