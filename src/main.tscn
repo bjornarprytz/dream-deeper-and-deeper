@@ -21,9 +21,11 @@ script = ExtResource("1_gks2g")
 [node name="Player" parent="." instance=ExtResource("2_xnexx")]
 position = Vector2(239, 246)
 
-[node name="Flowers" type="Node" parent="."]
+[node name="Flowers" type="Node2D" parent="."]
 
-[node name="Critters" type="Node" parent="."]
+[node name="Critters" type="Node2D" parent="."]
+
+[node name="Bugs" type="Node2D" parent="."]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

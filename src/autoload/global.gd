@@ -58,7 +58,7 @@ func get_chunk_collection(chunk_coords: Vector2i) -> Array[Vector2i]:
 		Vector2i(x-1, y+1), Vector2i(x, y+1), Vector2i(x+1, y+1)
 	]
 
-func _update_chunk_coord() -> void:	
+func _update_chunk_coord() -> void:
 	assert(player != null)
 	
 	var new_coord := get_current_chunk(player.global_position)

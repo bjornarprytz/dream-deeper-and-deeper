@@ -10,6 +10,8 @@ extends Node
 @onready var _oct_spawner = preload("res://critters/oct/octstera.tscn")
 
 
+@onready var _bug_spawner = preload("res://critters/bug/bug.tscn")
+
 @onready var _critter_spawners : Array[PackedScene] = [
 	_circ_spawner,
 	_tri_spawner,
@@ -31,6 +33,10 @@ func critter() -> Critter:
 	return _randomize_critter(
 		_critter_spawners.pick_random().instantiate() as Critter)
 
+func bug() -> Bug:
+	return _randomize_bug(
+		_bug_spawner.instantiate() as Bug
+	)
 
 static func _randomize_flower(flower: Flower) -> Flower:
 	var s = randf_range(.15, .4)
@@ -43,3 +49,12 @@ static func _randomize_critter(critter: Critter) -> Critter:
 	critter.scale = Vector2(s, s)
 	critter.modulate = Global.palette_critters.pick_random()
 	return critter
+
+static func _randomize_bug(bug: Bug) -> Bug:
+	var s = randf_range(.9, 1.1)
+	bug.scale = Vector2(s, s)
+	bug.modulate = Global.palette_critters.pick_random() * 0.5
+	var chars := "abcdefghijklnopqrstuxyzæøå123456789"
+	bug.form = chars[randi_range(0, chars.length()-1)]
+	return bug
+

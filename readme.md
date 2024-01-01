@@ -38,6 +38,10 @@ Transitions between the worlds should be related to the magic. Maybe the player 
 - Circ
   - Sings
   - Picks Flowers for braiding
+- Bug
+  - Buzzes around on vector paths
+  - Lands on flowers
+  - Interaction with the player?
 
 #### Flora
 
@@ -47,6 +51,7 @@ Transitions between the worlds should be related to the magic. Maybe the player 
   - Pastelle
 - Generation
   - Clean up stragglers outside chunk bounds
+  - Add Bug to the Spawner (with randomization logic)
 - Behaviour
   - Flocking
   - Interact with the player
@@ -60,6 +65,13 @@ Transitions between the worlds should be related to the magic. Maybe the player 
 ### Behaviour
 
 - Critters
+  - Bug
+    - Buzz path (vector)
+    - Land on flowers
+      - Save Energy
+    - Escape sudden movement
+      - How sudden depends on remaining energy (high energy = fast reaction)
+    - Transport pollen
   - Tri
     - Meander
     - Investigate
@@ -114,6 +126,7 @@ Transitions between the worlds should be related to the magic. Maybe the player 
   - Random/varied pattern
 - Generation
   - Organic meadows
+- Palette for bugs
 
 ### Extra
 

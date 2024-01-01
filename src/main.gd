@@ -1,7 +1,9 @@
 extends Node2D
 
-@onready var flowers : Node = $Flowers
-@onready var critters : Node = $Critters
+@onready var flowers : Node2D = $Flowers
+@onready var critters : Node2D = $Critters
+@onready var bugs : Node2D = $Bugs
+
 
 func _ready() -> void:
 	Global.chunk_changed.connect(_on_new_chunk)
@@ -26,6 +28,7 @@ func _populate_chunk(chunk_coord: Vector2i):
 	
 	const n_flowers = 25
 	const n_critters = 4
+	const n_bugs = 10
 	
 	for i in range(n_flowers):
 		var flower = Spawn.flower()
@@ -36,5 +39,9 @@ func _populate_chunk(chunk_coord: Vector2i):
 		var critter = Spawn.critter()
 		critters.add_child(critter)
 		critter.global_position = Global.get_random_pos_within_chunk(chunk_coord)
-		
+	
+	for i in range(n_bugs):
+		var bug = Spawn.bug()
+		bugs.add_child(bug)
+		bug.global_position = Global.get_random_pos_within_chunk(chunk_coord)
 
