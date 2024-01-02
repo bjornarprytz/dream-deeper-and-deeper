@@ -30,6 +30,10 @@ window/stretch/mode="viewport"
 
 project/assembly_name="DreamDeeperAndDeeper"
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/godot_state_charts/plugin.cfg")
+
 [physics]
 
 2d/default_gravity=0.0

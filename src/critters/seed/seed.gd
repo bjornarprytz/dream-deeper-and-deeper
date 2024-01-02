@@ -1,14 +1,12 @@
 class_name Seed
 extends Node2D
 
-@onready var sensors : Area2D = $Sensors
-
 func activate():
 	await get_tree().create_timer(randf_range(10.0, 25.0)).timeout
 	take_root()
 
 func take_root():
-	var flower = Spawn.pentagonia() # Revert to Flower
+	var flower = Spawn.flower()
 	
 	Spawn.flowers.add_child(flower)
 	flower.global_position = global_position

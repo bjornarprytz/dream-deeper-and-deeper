@@ -66,9 +66,6 @@ Transitions between the worlds should be related to the magic. Maybe the player 
 
 - Critters
   - Bug
-    - Buzz path (vector)
-    - Land on flowers
-      - Save Energy
     - Escape sudden movement
       - How sudden depends on remaining energy (high energy = fast reaction)
     - Transport pollen

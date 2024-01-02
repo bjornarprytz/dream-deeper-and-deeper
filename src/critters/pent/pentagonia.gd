@@ -47,18 +47,16 @@ func _spread_seeds():
 		var target = Global.random_vector2().normalized() * randf_range(50.0, 90.0)
 		var seed_tween = create_tween().set_ease(Tween.EASE_OUT)
 		seed_tween.tween_property(seed, "position", target, 1.0)
-		seed_tween.tween_callback(seed.take_root)
+		seed_tween.tween_callback(seed.activate)
 
 	pollen = 0
 	pollen_burst.emitting = true
-
-func _on_body_body_entered(body: Node2D) -> void:
-	if (body.owner is Critter or body is Player):
-		if (pollen == max_pollen):
-			_spread_seeds()
 
 func _on_body_area_entered(area: Area2D) -> void:
 	if (area.owner is Flower):
 		halt_growth = true
 		if scale.x < 0.1:
 			queue_free()
+	elif (area.owner is Player):
+		if (pollen == max_pollen):
+			_spread_seeds()

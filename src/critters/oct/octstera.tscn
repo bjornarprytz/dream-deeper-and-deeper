@@ -7,3 +7,4 @@
 script = ExtResource("1_vah6k")
 
 [node name="Body" parent="." instance=ExtResource("2_bs4rj")]
+polygon = PackedVector2Array(25, 0, 17.6777, 17.6777, 1.53076e-15, 25, -17.6777, 17.6777, -25, 3.06152e-15, -17.6777, -17.6777, -4.59227e-15, -25, 17.6777, -17.6777)

@@ -17,3 +17,4 @@ shape = SubResource("CircleShape2D_uuqpq")
 
 [node name="Body" parent="." instance=ExtResource("2_0akqb")]
 n_sides = 4
+polygon = PackedVector2Array(25, 0, 1.53076e-15, 25, -25, 3.06152e-15, -4.59227e-15, -25)

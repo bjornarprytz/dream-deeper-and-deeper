@@ -1,5 +1,5 @@
 class_name Player
-extends CharacterBody2D
+extends Node2D
 
 var speed = 200
 const rotate_speed = 20.0
@@ -13,16 +13,9 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	var input_vector := Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
-	velocity = input_vector * speed
 	
 	if !_is_emoting():
-		var collided = move_and_slide()
-		
-		if (collided):
-			var collider = get_slide_collision(0).get_collider()
-			if (collider):
-				collider.sleeping = false
-				collider.apply_force(collider.position - position)
+		translate(input_vector * speed * delta)
 	elif input_vector != Vector2.ZERO:
 		if is_pivoting:
 			_pivot(input_vector.x * delta)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://dpjb6ok25fu10"]
+[gd_scene load_steps=4 format=3 uid="uid://dpjb6ok25fu10"]
 
 [ext_resource type="Script" path="res://critters/seed/seed.gd" id="1_q8iol"]
 [ext_resource type="FontFile" uid="uid://dlb4kcv6rrju8" path="res://assets/JetBrainsMono-VariableFont_wght.ttf" id="2_ucmq1"]
@@ -6,9 +6,6 @@
 [sub_resource type="Theme" id="Theme_g8j0u"]
 default_font = ExtResource("2_ucmq1")
 default_font_size = 256
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_iek41"]
-radius = 30.0
 
 [node name="Seed" type="Node2D"]
 script = ExtResource("1_q8iol")
@@ -21,9 +18,3 @@ offset_bottom = 315.0
 scale = Vector2(0.2, 0.2)
 theme = SubResource("Theme_g8j0u")
 text = "*"
-
-[node name="Sensors" type="Area2D" parent="."]
-monitorable = false
-
-[node name="Shape" type="CollisionShape2D" parent="Sensors"]
-shape = SubResource("CircleShape2D_iek41")
