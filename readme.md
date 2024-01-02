@@ -90,9 +90,10 @@ Transitions between the worlds should be related to the magic. Maybe the player 
       - Sing (Circ, Player, Tri)
       - Feed (Quad)
   - Flowers
-    - Charge (build pollen)
-    - Brush by (critter)
-      - Release pollen (if full)
+    - Flesh out the other types and refactor Pentagonia
+      - Hex
+      - Sept
+      - Oct
   - Player
     - Emote
       - Squeeze
@@ -110,14 +111,6 @@ Transitions between the worlds should be related to the magic. Maybe the player 
         - Joystick left/right decreases/increases scale
         - Bounce back to (1,1) after
     - Create Portal
-- Flora
-  - Pollen builds up until full
-  - Brush By:
-    - Release pollen
-    - Grow new plants
-      - Check proximity of other plants to decide if a seed becomes a plant
-  - Shrivel when overlapping with another flower
-    - Remove the root function in favor of the shriveling. Maybe the root func can check to avoid actual overlap over position (0,0), but it could be nice for plants to "adapt" by scaling down
 
 - Push release with `./push_release.sh`
 

@@ -35,6 +35,10 @@ func flower() -> Flower:
 	return _randomize_flower(
 		_flower_spawners.pick_random().instantiate() as Flower)
 
+func pentagonia() -> Pentagonia:
+	return _randomize_flower(
+		_pent_spawner.instantiate() as Pentagonia)
+
 func critter() -> Critter:
 	return _randomize_critter(
 		_critter_spawners.pick_random().instantiate() as Critter)
@@ -50,6 +54,7 @@ func plant_seed():
 static func _randomize_flower(flower: Flower) -> Flower:
 	var s = randf_range(.3, .5)
 	flower.scale = Vector2(s, s)
+	flower.rotation_degrees = randf_range(0.0, 360.0)
 	flower.modulate = Global.palette_plants.pick_random()
 	return flower
 

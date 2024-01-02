@@ -9,13 +9,23 @@ var nearby: Node2D
 @onready var pattern3 : Line2D = $Body/Pattern/C
 
 @onready var pollen_burst : CPUParticles2D = $PollenBurst
+@onready var target_scale : Vector2 = scale
+
+@export var growth_rate: float = .2
 
 var snap_back_tween : Tween
-
 var _time_spent : float = 0.0
+var halt_growth : bool = false
+
+
+func _ready() -> void:
+	scale = Vector2.ZERO
 
 func _process(delta: float) -> void:
 	super(delta)
+	
+	if (!halt_growth):
+		scale = lerp(scale, target_scale, delta * growth_rate)
 	
 	var pattern_speed = pollen / max_pollen
 	_time_spent += (pattern_speed * delta)
@@ -31,12 +41,14 @@ func _process(delta: float) -> void:
 func _spread_seeds():	
 	pollen_burst.amount = int(pollen / 5.0)
 	
-	var seed = Spawn.plant_seed()
-	add_child.call_deferred(seed)
-	var target = Global.random_vector2().normalized() * randf_range(50.0, 90.0)
-	var seed_tween = create_tween().set_ease(Tween.EASE_OUT)
-	seed_tween.tween_property(seed, "position", target, 1.0)
-	seed_tween.tween_callback(seed.try_root)
+	for s in range(randi_range(1, 2)):
+		var seed = Spawn.plant_seed()
+		add_child.call_deferred(seed)
+		var target = Global.random_vector2().normalized() * randf_range(50.0, 90.0)
+		var seed_tween = create_tween().set_ease(Tween.EASE_OUT)
+		seed_tween.tween_property(seed, "position", target, 1.0)
+		seed_tween.tween_callback(seed.take_root)
+
 	pollen = 0
 	pollen_burst.emitting = true
 
@@ -45,3 +57,8 @@ func _on_body_body_entered(body: Node2D) -> void:
 		if (pollen == max_pollen):
 			_spread_seeds()
 
+func _on_body_area_entered(area: Area2D) -> void:
+	if (area.owner is Flower):
+		halt_growth = true
+		if scale.x < 0.1:
+			queue_free()

@@ -60,4 +60,5 @@ damping_max = 500.0
 scale_amount_min = 0.1
 scale_amount_max = 0.2
 
+[connection signal="area_entered" from="Body" to="." method="_on_body_area_entered"]
 [connection signal="body_entered" from="Body" to="." method="_on_body_body_entered"]
