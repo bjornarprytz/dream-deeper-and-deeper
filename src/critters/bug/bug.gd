@@ -52,7 +52,7 @@ const max_energy := 100.0
 @onready var left_base_scale : float = left_wing.scale.y
 @onready var right_base_scale : float = right_wing.scale.y
 @onready var flight_speed : float = randf_range(3.0, 12.0)
-@onready var rotation_strength : float = randf_range(3.0, 12.0)
+@onready var rotation_strength : float = randf_range(8.0, 12.0)
 
 @export var recovery_rate : float = 10.0
 @export var exertion_rate : float = 5.0
@@ -71,7 +71,7 @@ const max_energy := 100.0
 
 const flying_flap_speed := 10.0
 const take_off_flap_speed := 15.0
-const landing_flap_speed := 12.0
+const landing_flap_speed := 5.0
 const landed_flap_speed := 1.0
 
 var target : Vector2
@@ -142,19 +142,21 @@ func _process_fleeing(delta: float) -> void:
 func _process_searching(delta: float) -> void:
 	flap_speed = lerp(flap_speed, take_off_flap_speed, delta)
 	
-	if (global_position.distance_to(target) < 5.0):
+	var distance = global_position.distance_to(target)
+	
+	if (distance < 20.0 or distance > 100.0):
 		_set_random_target()
 
 func _process_flying(delta: float) -> void:
-	energy -= clamp(delta * exertion_rate, 0.0, max_energy)
+	energy = clamp(energy - (delta * exertion_rate), 0.0, max_energy)
 	
 	var forward_vector = Vector2(cos(global_rotation), sin(global_rotation))
 	
-	global_position += forward_vector * flap_speed * flight_speed * delta
+	global_position -= forward_vector * flap_speed * flight_speed * delta
 	
 	var angle_to_target = (global_position - target).angle_to(forward_vector)
 	
-	global_rotation = lerp(global_rotation, angle_to_target, delta * rotation_strength)
+	global_rotation = lerp(global_rotation, global_rotation - angle_to_target, delta * rotation_strength)
 
 
 func _on_sensors_area_entered(area: Area2D) -> void:
@@ -183,7 +185,7 @@ func _on_searching_state_entered() -> void:
 	_set_random_target()
 
 func _set_random_target():
-	target = Global.random_vector2() * randf_range(7.0, 10.0)
+	target = global_position + (Global.random_vector2() * randf_range(60.0, 80.0))
 
 func _on_sensors_area_exited(area: Area2D) -> void:
 	var thing = area.owner
