@@ -57,7 +57,7 @@ Transitions between the worlds should be related to the magic. Maybe the player 
   - Interact with the player
   - Speed
 - Player
-  - Appearance
+  - Appearance: Catterpillar (Like Mario Chomp Chomp)
 - Mechanics
   - Gather color drops
   - Create portal
@@ -88,8 +88,14 @@ Transitions between the worlds should be related to the magic. Maybe the player 
   - Flowers
     - Flesh out the other types and refactor Pentagonia
       - Hex
+        - Triangles rotating inside
       - Sept
+        - Lines going like a star from point to point, then they dance back and forth
       - Oct
+        - Bubbles emnating from the center and outward
+  - Seeds
+    - Burst out of the flower when brushed by, all seeds look like this: *
+    - Seeds can be "picked up" by bugs and critters. They stick to their bodies, and take root after a few seconds
   - Player
     - Emote
       - Squeeze

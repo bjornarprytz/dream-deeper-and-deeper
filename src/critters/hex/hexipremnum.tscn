@@ -1,10 +1,65 @@
-[gd_scene load_steps=3 format=3 uid="uid://b6h51w5pv71r8"]
+[gd_scene load_steps=4 format=3 uid="uid://b6h51w5pv71r8"]
 
 [ext_resource type="Script" path="res://critters/hex/hexipremnum.gd" id="1_5g7sf"]
 [ext_resource type="PackedScene" uid="uid://yp7iioou2jqm" path="res://tools/RegularPolygon.tscn" id="2_8y2kw"]
+[ext_resource type="PackedScene" uid="uid://bu04toiv8r3wn" path="res://critters/seed/pollen_burst.tscn" id="3_dfh32"]
 
 [node name="Hexipremnum" type="Node2D"]
 script = ExtResource("1_5g7sf")
 
 [node name="Body" parent="." instance=ExtResource("2_8y2kw")]
 n_sides = 6
+polygon = PackedVector2Array(25, 0, 12.5, 21.6506, -12.5, 21.6506, -25, 3.06152e-15, -12.5, -21.6506, 12.5, -21.6506)
+border_color = Color(0.776471, 0.776471, 0.776471, 1)
+border_width = 2.0
+
+[node name="Pattern" type="Polygon2D" parent="Body"]
+clip_children = 1
+polygon = PackedVector2Array(25, 0, 12.5, 21.6506, -12.5, 21.6506, -25, 3.06152e-15, -12.5, -21.6506, 12.5, -21.6506)
+metadata/_edit_lock_ = true
+
+[node name="A" type="Line2D" parent="Body/Pattern"]
+points = PackedVector2Array(25, 0, 0, 0, 12.5, 21.6506)
+closed = true
+width = 2.0
+default_color = Color(0.698039, 0.698039, 0.698039, 1)
+joint_mode = 2
+
+[node name="B" type="Line2D" parent="Body/Pattern"]
+points = PackedVector2Array(25, 0, 0, 0, 12.5, -21.6506)
+closed = true
+width = 2.0
+default_color = Color(0.698039, 0.698039, 0.698039, 1)
+joint_mode = 2
+
+[node name="C" type="Line2D" parent="Body/Pattern"]
+points = PackedVector2Array(0, 0, -12.5, -21.6506, 12.5, -21.6506)
+closed = true
+width = 2.0
+default_color = Color(0.698039, 0.698039, 0.698039, 1)
+joint_mode = 2
+
+[node name="D" type="Line2D" parent="Body/Pattern"]
+points = PackedVector2Array(0, 0, -25, 3.06152e-15, -12.5, -21.6506)
+closed = true
+width = 2.0
+default_color = Color(0.698039, 0.698039, 0.698039, 1)
+joint_mode = 2
+
+[node name="E" type="Line2D" parent="Body/Pattern"]
+points = PackedVector2Array(0, 0, -12.5, 21.6506, -25, 3.06152e-15)
+closed = true
+width = 2.0
+default_color = Color(0.698039, 0.698039, 0.698039, 1)
+joint_mode = 2
+
+[node name="F" type="Line2D" parent="Body/Pattern"]
+points = PackedVector2Array(0, 0, 12.5, 21.6506, -12.5, 21.6506)
+closed = true
+width = 2.0
+default_color = Color(0.698039, 0.698039, 0.698039, 1)
+joint_mode = 2
+
+[node name="PollenBurst" parent="." instance=ExtResource("3_dfh32")]
+
+[connection signal="area_entered" from="Body" to="." method="_on_body_area_entered"]
