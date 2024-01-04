@@ -48,10 +48,12 @@ Transitions between the worlds should be related to the magic. Maybe the player 
 ## TODO
 
 - Palette
-  - Pastelle
+  - Pastel
+    - https://colorhunt.co/palette/ecee818ddfcb82a0d8edb7ed
+    - https://colorhunt.co/palette/fd8a8af1f7b5a8d1d19ea1d4
+    - https://colorhunt.co/palette/9adcfffff89affb2a6ff8aae
 - Generation
   - Clean up stragglers outside chunk bounds
-  - Add Bug to the Spawner (with randomization logic)
 - Behaviour
   - Flocking
   - Interact with the player
@@ -85,31 +87,8 @@ Transitions between the worlds should be related to the magic. Maybe the player 
     - Interact
       - Sing (Circ, Player, Tri)
       - Feed (Quad)
-  - Flowers
-    - Flesh out the other types and refactor Pentagonia
-      - Sept
-        - Lines going like a star from point to point, then they dance back and forth
-      - Oct
-        - Bubbles emnating from the center and outward
   - Seeds
-    - Burst out of the flower when brushed by, all seeds look like this: *
     - Seeds can be "picked up" by bugs and critters. They stick to their bodies, and take root after a few seconds
-  - Player
-    - Emote
-      - Squeeze
-        - Scale x and y independently
-        - Bounce back to (1,1) after
-      - Pivot
-        - Set random pivot point within body bounds
-        - Joystic left/right to increase torque around pivot
-        - Settle on rotation (0,0) after
-      - Change Color
-        - Use joystick to navigate an (invisible) color picker
-        - Click joystick to snap back to original color
-        - Slowly regain orignal color too (10 seconds?)
-      - Inflate/deflate
-        - Joystick left/right decreases/increases scale
-        - Bounce back to (1,1) after
     - Create Portal
 
 - Push release with `./push_release.sh`
