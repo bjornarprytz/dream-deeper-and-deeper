@@ -1,11 +1,25 @@
-[gd_scene load_steps=3 format=3 uid="uid://fovx6k8afa0x"]
+[gd_scene load_steps=4 format=3 uid="uid://fovx6k8afa0x"]
 
 [ext_resource type="Script" path="res://critters/sept/septodendron.gd" id="1_h1soi"]
 [ext_resource type="PackedScene" uid="uid://yp7iioou2jqm" path="res://tools/RegularPolygon.tscn" id="2_q3338"]
+[ext_resource type="PackedScene" uid="uid://bu04toiv8r3wn" path="res://critters/seed/pollen_burst.tscn" id="3_omcq5"]
 
 [node name="Septodendron" type="Node2D"]
+scale = Vector2(0.964264, 0.964264)
 script = ExtResource("1_h1soi")
+pollen = 100.0
 
 [node name="Body" parent="." instance=ExtResource("2_q3338")]
 n_sides = 7
 polygon = PackedVector2Array(25, 0, 15.5872, 19.5458, -5.56302, 24.3732, -22.5242, 10.8471, -22.5242, -10.8471, -5.56302, -24.3732, 15.5872, -19.5458)
+border_color = Color(0.760784, 0.760784, 0.760784, 1)
+border_width = 2.0
+
+[node name="Pattern" type="Polygon2D" parent="Body"]
+clip_children = 1
+polygon = PackedVector2Array(25, 0, 15.5872, 19.5458, -5.56302, 24.3732, -22.5242, 10.8471, -22.5242, -10.8471, -5.56302, -24.3732, 15.5872, -19.5458)
+metadata/_edit_lock_ = true
+
+[node name="PollenBurst" parent="." instance=ExtResource("3_omcq5")]
+
+[connection signal="area_entered" from="Body" to="." method="_on_body_area_entered"]

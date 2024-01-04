@@ -87,8 +87,6 @@ Transitions between the worlds should be related to the magic. Maybe the player 
       - Feed (Quad)
   - Flowers
     - Flesh out the other types and refactor Pentagonia
-      - Hex
-        - Triangles rotating inside
       - Sept
         - Lines going like a star from point to point, then they dance back and forth
       - Oct
