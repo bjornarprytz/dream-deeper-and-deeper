@@ -60,8 +60,12 @@ Transitions between the worlds should be related to the magic. Maybe the player 
   - Speed
 - Player
   - Appearance: Catterpillar (Like Mario Chomp Chomp)
+  - Emoting:
+    - Rotation -> Talking: Torrent of letters
+    - Jump all catterpillar sections (RB/LB)
 - Mechanics
   - Gather color drops
+  - Grow the Catterpillar: Zoom out
   - Create portal
 
 ### Behaviour
@@ -88,7 +92,6 @@ Transitions between the worlds should be related to the magic. Maybe the player 
       - Sing (Circ, Player, Tri)
       - Feed (Quad)
   - Seeds
-    - Seeds can be "picked up" by bugs and critters. They stick to their bodies, and take root after a few seconds
     - Create Portal
 
 - Push release with `./push_release.sh`
@@ -102,6 +105,9 @@ Transitions between the worlds should be related to the magic. Maybe the player 
 - Generation
   - Organic meadows
 - Palette for bugs
+- Flowers
+  - More responsive
+    - Jiggle
 
 ### Extra
 
