@@ -81,10 +81,10 @@ func _ready() -> void:
 		]
 
 	palette_plants = [
-		Color.from_string("ECEE81", Color.BLACK),
+		Color.from_string("9ADCFF", Color.BLACK),
 		Color.from_string("8DDFCB", Color.BLACK),
 		Color.from_string("82A0D8", Color.BLACK),
-		Color.from_string("EDB7ED", Color.BLACK)
+		Color.from_string("FD8A8A", Color.BLACK)
 		]
 
 const REFRESH_INTERVAL := 1.0

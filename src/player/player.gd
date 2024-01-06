@@ -1,6 +1,9 @@
 class_name Player
 extends Node2D
 
+
+@onready var words : CPUParticles2D = $Words
+
 var speed = 200
 const rotate_speed = 20.0
 const scale_multiplier = 1.8
@@ -17,11 +20,16 @@ func _physics_process(delta: float) -> void:
 	if !_is_emoting():
 		translate(input_vector * speed * delta)
 	elif input_vector != Vector2.ZERO:
+		if is_talking:
+			_talk(input_vector)
 		if is_pivoting:
 			_pivot(input_vector.x * delta)
 		if is_color_change:
 			_change_color(input_vector)
 		_change_scale(input_vector)
+
+func _talk(input_vector: Vector2):
+	words.direction = input_vector
 
 func _pivot(momentum: float):
 	_orbit(rotation + (momentum * rotate_speed))
@@ -46,6 +54,13 @@ var scale_tween : Tween
 var pivot_tween : Tween
 var pivot_point : Vector2
 var color_tween : Tween
+
+var is_talking : bool:
+	set(value):
+		if value == is_talking:
+			return
+		is_talking = value
+		words.emitting = value
 
 var is_squeezing : bool:
 	set(value):
@@ -106,7 +121,7 @@ var is_flating : bool:
 				scale_tween.kill()
 
 func _is_emoting():
-	return is_squeezing or is_pivoting or is_color_change or is_flating
+	return is_squeezing or is_pivoting or is_color_change or is_flating or is_talking
 
 func _input(event: InputEvent) -> void:
 	if (event is InputEventJoypadButton):
@@ -114,7 +129,8 @@ func _input(event: InputEvent) -> void:
 			JOY_BUTTON_A:
 				is_squeezing = event.pressed
 			JOY_BUTTON_B:
-				is_pivoting = event.pressed
+				#is_pivoting = event.pressed
+				is_talking = event.pressed
 			JOY_BUTTON_X:
 				is_flating = event.pressed
 			JOY_BUTTON_Y:

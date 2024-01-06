@@ -158,7 +158,6 @@ func _process_flying(delta: float) -> void:
 	
 	global_rotation = lerp(global_rotation, global_rotation - angle_to_target, delta * rotation_strength)
 
-
 func _on_sensors_area_entered(area: Area2D) -> void:
 	var thing = area.owner
 	

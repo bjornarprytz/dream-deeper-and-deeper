@@ -61,19 +61,22 @@ Transitions between the worlds should be related to the magic. Maybe the player 
 - Player
   - Appearance: Catterpillar (Like Mario Chomp Chomp)
   - Emoting:
-    - Rotation -> Talking: Torrent of letters
     - Jump all catterpillar sections (RB/LB)
 - Mechanics
   - Gather color drops
   - Grow the Catterpillar: Zoom out
   - Create portal
+- Sound Design
+  - Plants
+  - Seeds
+  - Critters
+  - Emotes
+  - Music
+  - Bugs
 
 ### Behaviour
 
 - Critters
-  - Bug
-    - Escape sudden movement
-      - How sudden depends on remaining energy (high energy = fast reaction)
   - Tri
     - Meander
     - Investigate
@@ -104,8 +107,14 @@ Transitions between the worlds should be related to the magic. Maybe the player 
   - Random/varied pattern
 - Generation
   - Organic meadows
-- Palette for bugs
+- Bug
+  - Palette
+  - Escape sudden movement
+    - How sudden depends on remaining energy (high energy = fast reaction)
+- Player
+  - Add music notes to the talking-sheet
 - Flowers
+  - Grow seeds gradually
   - More responsive
     - Jiggle
 
