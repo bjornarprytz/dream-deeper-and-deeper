@@ -170,7 +170,7 @@ func _on_sensors_area_entered(area: Area2D) -> void:
 		state_chart.send_event("flee")
 
 func _flower_is_candidate(f: Flower) -> bool:
-	if (f.occupied or flower != null):
+	if (f.occupied or !f.full_grown or flower != null):
 		return false
 
 	var flower_color = f.modulate

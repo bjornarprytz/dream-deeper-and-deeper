@@ -13,7 +13,7 @@ extends Node2D
 
 var nearby: Node2D
 var occupied : bool = false
-var halt_growth : bool = false
+var full_grown : bool = false
 
 func _ready() -> void:
 	scale = Vector2.ZERO
@@ -21,8 +21,11 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pollen = clamp(pollen + (delta * pollen_rate), 0.0, max_pollen)
 	
-	if (!halt_growth):
+	if (!full_grown):
 		scale = lerp(scale, target_scale, delta * growth_rate)
+		
+		if (scale == target_scale):
+			full_grown = true
 
 func _spread_seeds():	
 	pollen_burst.amount = int(pollen / 5.0)
@@ -40,7 +43,7 @@ func _spread_seeds():
 
 func _on_body_area_entered(area: Area2D) -> void:
 	if (area.owner is Flower):
-		halt_growth = true
+		full_grown = true
 		if scale.x < 0.1:
 			queue_free()
 	elif (area.owner is Player):
