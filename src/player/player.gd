@@ -2,7 +2,7 @@ class_name Player
 extends Node2D
 
 
-@onready var words : CPUParticles2D = $Words
+@onready var words : Words = $Words
 
 var speed = 200
 const rotate_speed = 20.0
@@ -60,7 +60,7 @@ var is_talking : bool:
 		if value == is_talking:
 			return
 		is_talking = value
-		words.emitting = value
+		words.talking = value
 
 var is_squeezing : bool:
 	set(value):

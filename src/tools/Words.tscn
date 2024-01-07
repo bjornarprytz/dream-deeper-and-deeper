@@ -1,0 +1,54 @@
+[gd_scene load_steps=7 format=3 uid="uid://57br4s77ae2g"]
+
+[ext_resource type="Script" path="res://tools/words.gd" id="1_lml7e"]
+[ext_resource type="Texture2D" uid="uid://bgk288fre3r8" path="res://assets/alphabet.png" id="1_y4fuy"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_8w46e"]
+particles_animation = true
+particles_anim_h_frames = 10
+particles_anim_v_frames = 3
+particles_anim_loop = false
+
+[sub_resource type="Curve" id="Curve_mh08y"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.200837, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_460ly"]
+min_value = -1.0
+_data = [Vector2(0, -0.015625), 0.0, 0.0, 0, 0, Vector2(1, 0.339844), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2efux"]
+radius = 30.0
+height = 100.0
+
+[node name="Words" type="Node2D"]
+script = ExtResource("1_lml7e")
+
+[node name="Particles" type="CPUParticles2D" parent="."]
+material = SubResource("CanvasItemMaterial_8w46e")
+emitting = false
+amount = 15
+lifetime = 0.5
+texture = ExtResource("1_y4fuy")
+direction = Vector2(0, -1)
+spread = 30.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 75.0
+initial_velocity_max = 200.0
+radial_accel_max = 18.47
+angle_max = 360.0
+scale_amount_min = 0.2
+scale_amount_max = 0.3
+scale_amount_curve = SubResource("Curve_mh08y")
+hue_variation_min = -0.5
+hue_variation_max = 0.5
+hue_variation_curve = SubResource("Curve_460ly")
+anim_offset_max = 1.0
+
+[node name="AoE" type="Area2D" parent="."]
+
+[node name="Shape" type="CollisionShape2D" parent="AoE"]
+position = Vector2(50, 0)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_2efux")
