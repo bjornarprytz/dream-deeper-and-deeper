@@ -78,6 +78,7 @@ Transitions between the worlds should be related to the magic. Maybe the player 
 
 - Critters
   - Tri
+    - Goal: Get pretty
     - Meander
     - Investigate
       - Dance
