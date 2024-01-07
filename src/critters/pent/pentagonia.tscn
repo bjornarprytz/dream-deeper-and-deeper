@@ -1,13 +1,13 @@
 [gd_scene load_steps=4 format=3 uid="uid://dcyswhpnrau34"]
 
 [ext_resource type="Script" path="res://critters/pent/pentagonia.gd" id="1_m28qs"]
-[ext_resource type="PackedScene" uid="uid://yp7iioou2jqm" path="res://tools/RegularPolygon.tscn" id="2_1vn31"]
+[ext_resource type="PackedScene" uid="uid://yp7iioou2jqm" path="res://tools/Body.tscn" id="2_xry6n"]
 [ext_resource type="PackedScene" uid="uid://bu04toiv8r3wn" path="res://critters/seed/pollen_burst.tscn" id="3_if6es"]
 
 [node name="Pentagonia" type="Node2D"]
 script = ExtResource("1_m28qs")
 
-[node name="Body" parent="." instance=ExtResource("2_1vn31")]
+[node name="Body" parent="." instance=ExtResource("2_xry6n")]
 n_sides = 5
 polygon = PackedVector2Array(25, 0, 7.72542, 23.7764, -20.2254, 14.6946, -20.2254, -14.6946, 7.72542, -23.7764)
 border_color = Color(0.776471, 0.776471, 0.776471, 1)

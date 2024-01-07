@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://ccthk6lgcm7y"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_l6ult"]
-[ext_resource type="PackedScene" uid="uid://yp7iioou2jqm" path="res://tools/RegularPolygon.tscn" id="2_hqlah"]
+[ext_resource type="PackedScene" uid="uid://yp7iioou2jqm" path="res://tools/Body.tscn" id="2_hqlah"]
 [ext_resource type="Texture2D" uid="uid://bgk288fre3r8" path="res://assets/alphabet.png" id="3_4qihp"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_8w46e"]

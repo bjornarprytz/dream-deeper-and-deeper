@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://b32u018e5vcwy"]
 
 [ext_resource type="Script" path="res://critters/circ/circ.gd" id="1_jn2c7"]
-[ext_resource type="PackedScene" uid="uid://yp7iioou2jqm" path="res://tools/RegularPolygon.tscn" id="2_7isha"]
+[ext_resource type="PackedScene" uid="uid://yp7iioou2jqm" path="res://tools/Body.tscn" id="2_7isha"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0yikk"]
 radius = 180.0

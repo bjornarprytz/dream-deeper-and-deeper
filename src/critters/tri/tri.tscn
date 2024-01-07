@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bnmy7i4v1upqs"]
 
 [ext_resource type="Script" path="res://critters/tri/tri.gd" id="1_wrtmk"]
-[ext_resource type="PackedScene" uid="uid://yp7iioou2jqm" path="res://tools/RegularPolygon.tscn" id="3_14iat"]
+[ext_resource type="PackedScene" uid="uid://yp7iioou2jqm" path="res://tools/Body.tscn" id="3_14iat"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0cl0h"]
 radius = 120.0

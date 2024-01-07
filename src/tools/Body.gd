@@ -1,5 +1,5 @@
 @tool
-class_name RegularPolygonBody2D
+class_name Body
 extends Area2D
 
 @export var radius: float = 25.0:
