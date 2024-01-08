@@ -1,8 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://cel20pkx16av5"]
+[gd_scene load_steps=12 format=3 uid="uid://cel20pkx16av5"]
 
 [ext_resource type="Script" path="res://critters/quad/quad.gd" id="1_g7j6l"]
 [ext_resource type="PackedScene" uid="uid://yp7iioou2jqm" path="res://tools/Body.tscn" id="2_28qxc"]
 [ext_resource type="Texture2D" uid="uid://qcv1haklxq1g" path="res://assets/heart.png" id="3_kvr1x"]
+[ext_resource type="Script" path="res://addons/godot_state_charts/state_chart.gd" id="4_u7bhd"]
+[ext_resource type="Script" path="res://addons/godot_state_charts/compound_state.gd" id="5_83jq6"]
+[ext_resource type="Script" path="res://addons/godot_state_charts/atomic_state.gd" id="6_8n6u5"]
+[ext_resource type="Script" path="res://addons/godot_state_charts/transition.gd" id="7_stdf3"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_uuqpq"]
 radius = 90.0
@@ -28,7 +32,7 @@ script = ExtResource("1_g7j6l")
 [node name="Senses" type="Area2D" parent="."]
 monitorable = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Senses"]
+[node name="Shape" type="CollisionShape2D" parent="Senses"]
 shape = SubResource("CircleShape2D_uuqpq")
 
 [node name="Body" parent="." instance=ExtResource("2_28qxc")]
@@ -63,5 +67,98 @@ hue_variation_max = 0.52
 hue_variation_curve = SubResource("Curve_ss6w4")
 anim_offset_max = 1.0
 
+[node name="StateChart" type="Node" parent="."]
+script = ExtResource("4_u7bhd")
+
+[node name="Root" type="Node" parent="StateChart"]
+script = ExtResource("5_83jq6")
+initial_state = NodePath("Moving")
+
+[node name="Moving" type="Node" parent="StateChart/Root"]
+script = ExtResource("5_83jq6")
+initial_state = NodePath("Meandering")
+
+[node name="Meandering" type="Node" parent="StateChart/Root/Moving"]
+script = ExtResource("6_8n6u5")
+
+[node name="ToFlocking" type="Node" parent="StateChart/Root/Moving/Meandering"]
+script = ExtResource("7_stdf3")
+to = NodePath("../../Flocking")
+event = &"flock"
+
+[node name="ToHunting" type="Node" parent="StateChart/Root/Moving/Meandering"]
+script = ExtResource("7_stdf3")
+to = NodePath("../../Hunting")
+event = &"hunt"
+
+[node name="Flocking" type="Node" parent="StateChart/Root/Moving"]
+script = ExtResource("6_8n6u5")
+
+[node name="ToMeandering" type="Node" parent="StateChart/Root/Moving/Flocking"]
+script = ExtResource("7_stdf3")
+to = NodePath("../../Meandering")
+event = &"meander"
+
+[node name="ToHunting" type="Node" parent="StateChart/Root/Moving/Flocking"]
+script = ExtResource("7_stdf3")
+to = NodePath("../../Hunting")
+event = &"hunt"
+
+[node name="Hunting" type="Node" parent="StateChart/Root/Moving"]
+script = ExtResource("6_8n6u5")
+
+[node name="ToMoving" type="Node" parent="StateChart/Root/Moving/Hunting"]
+script = ExtResource("7_stdf3")
+to = NodePath("../..")
+event = &"move"
+
+[node name="ToGrazing" type="Node" parent="StateChart/Root/Moving/Hunting"]
+script = ExtResource("7_stdf3")
+to = NodePath("../../../Stationary/Grazing")
+event = &"graze"
+
+[node name="ToDancing" type="Node" parent="StateChart/Root/Moving"]
+script = ExtResource("7_stdf3")
+to = NodePath("../../Stationary/Dancing")
+event = &"dance"
+
+[node name="Stationary" type="Node" parent="StateChart/Root"]
+script = ExtResource("5_83jq6")
+initial_state = NodePath("Grazing")
+
+[node name="Grazing" type="Node" parent="StateChart/Root/Stationary"]
+script = ExtResource("6_8n6u5")
+
+[node name="ToPooping" type="Node" parent="StateChart/Root/Stationary/Grazing"]
+script = ExtResource("7_stdf3")
+to = NodePath("../../Pooping")
+event = &"poop"
+
+[node name="ToDancing" type="Node" parent="StateChart/Root/Stationary/Grazing"]
+script = ExtResource("7_stdf3")
+to = NodePath("../../Dancing")
+event = &"dance"
+
+[node name="Pooping" type="Node" parent="StateChart/Root/Stationary"]
+script = ExtResource("6_8n6u5")
+
+[node name="Dancing" type="Node" parent="StateChart/Root/Stationary"]
+script = ExtResource("6_8n6u5")
+
+[node name="ToMoving" type="Node" parent="StateChart/Root/Stationary"]
+script = ExtResource("7_stdf3")
+to = NodePath("../../Moving")
+event = &"move"
+
+[connection signal="area_entered" from="Senses" to="." method="_on_senses_area_entered"]
+[connection signal="area_exited" from="Senses" to="." method="_on_senses_area_exited"]
 [connection signal="area_entered" from="Emotions" to="." method="_on_emotions_area_entered"]
 [connection signal="area_exited" from="Emotions" to="." method="_on_emotions_area_exited"]
+[connection signal="state_entered" from="StateChart/Root/Moving" to="." method="_on_moving_state_entered"]
+[connection signal="state_physics_processing" from="StateChart/Root/Moving" to="." method="_on_moving_state_physics_processing"]
+[connection signal="state_entered" from="StateChart/Root/Moving/Meandering" to="." method="_on_meandering_state_entered"]
+[connection signal="state_physics_processing" from="StateChart/Root/Moving/Meandering" to="." method="_on_meandering_state_physics_processing"]
+[connection signal="state_physics_processing" from="StateChart/Root/Moving/Flocking" to="." method="_on_flocking_state_physics_processing"]
+[connection signal="state_physics_processing" from="StateChart/Root/Stationary/Grazing" to="." method="_on_grassing_state_physics_processing"]
+[connection signal="state_physics_processing" from="StateChart/Root/Stationary/Pooping" to="." method="_on_pooping_state_physics_processing"]
+[connection signal="state_physics_processing" from="StateChart/Root/Stationary/Dancing" to="." method="_on_dancing_state_physics_processing"]
