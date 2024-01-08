@@ -159,6 +159,9 @@ func _process_flying(delta: float) -> void:
 	global_rotation = lerp(global_rotation, global_rotation - angle_to_target, delta * rotation_strength)
 
 func _on_sensors_area_entered(area: Area2D) -> void:
+	if !(area is Body):
+		return
+	
 	var thing = area.owner
 	
 	if (thing is Flower and _flower_is_candidate(thing)):
@@ -187,6 +190,9 @@ func _set_random_target():
 	target = global_position + (Global.random_vector2() * randf_range(60.0, 80.0))
 
 func _on_sensors_area_exited(area: Area2D) -> void:
+	if !(area is Body):
+		return
+	
 	var thing = area.owner
 	if(thing is Critter or thing is Player):
 		threats.erase(thing)

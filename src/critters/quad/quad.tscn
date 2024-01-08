@@ -1,10 +1,26 @@
-[gd_scene load_steps=4 format=3 uid="uid://cel20pkx16av5"]
+[gd_scene load_steps=8 format=3 uid="uid://cel20pkx16av5"]
 
 [ext_resource type="Script" path="res://critters/quad/quad.gd" id="1_g7j6l"]
 [ext_resource type="PackedScene" uid="uid://yp7iioou2jqm" path="res://tools/Body.tscn" id="2_28qxc"]
+[ext_resource type="Texture2D" uid="uid://qcv1haklxq1g" path="res://assets/heart.png" id="3_kvr1x"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_uuqpq"]
 radius = 90.0
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_a8p6i"]
+particles_animation = true
+particles_anim_h_frames = 2
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Curve" id="Curve_d6vfy"]
+_data = [Vector2(0.0159575, 0.527472), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_ss6w4"]
+min_value = -1.0
+_data = [Vector2(0, -0.692308), 0.0, 0.0, 0, 0, Vector2(1, 0.340659), 0.0, 0.0, 0, 0]
+point_count = 2
 
 [node name="Quad" type="Node2D"]
 script = ExtResource("1_g7j6l")
@@ -18,3 +34,34 @@ shape = SubResource("CircleShape2D_uuqpq")
 [node name="Body" parent="." instance=ExtResource("2_28qxc")]
 n_sides = 4
 polygon = PackedVector2Array(25, 0, 1.53076e-15, 25, -25, 3.06152e-15, -4.59227e-15, -25)
+
+[node name="Emotions" type="Area2D" parent="."]
+collision_mask = 2
+monitorable = false
+
+[node name="Shape" type="CollisionPolygon2D" parent="Emotions"]
+polygon = PackedVector2Array(25, 0, 1.53076e-15, 25, -25, 3.06152e-15, -4.59227e-15, -25)
+
+[node name="Love" type="CPUParticles2D" parent="."]
+material = SubResource("CanvasItemMaterial_a8p6i")
+emitting = false
+amount = 5
+texture = ExtResource("3_kvr1x")
+emission_shape = 1
+emission_sphere_radius = 25.0
+direction = Vector2(0, -1)
+spread = 0.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 10.0
+initial_velocity_max = 30.0
+scale_amount_min = 0.1
+scale_amount_max = 0.5
+scale_amount_curve = SubResource("Curve_d6vfy")
+color = Color(1, 0.25098, 0.827451, 1)
+hue_variation_min = -0.45
+hue_variation_max = 0.52
+hue_variation_curve = SubResource("Curve_ss6w4")
+anim_offset_max = 1.0
+
+[connection signal="area_entered" from="Emotions" to="." method="_on_emotions_area_entered"]
+[connection signal="area_exited" from="Emotions" to="." method="_on_emotions_area_exited"]

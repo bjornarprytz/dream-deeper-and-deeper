@@ -34,6 +34,11 @@ project/assembly_name="DreamDeeperAndDeeper"
 
 enabled=PackedStringArray("res://addons/godot_state_charts/plugin.cfg")
 
+[layer_names]
+
+2d_physics/layer_1="Physical"
+2d_physics/layer_2="Communication"
+
 [physics]
 
 2d/default_gravity=0.0

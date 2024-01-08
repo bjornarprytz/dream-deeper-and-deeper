@@ -55,6 +55,9 @@ func _spread_seed():
 	pollen_burst.emitting = true
 
 func _on_body_area_entered(area: Area2D) -> void:
+	if !(area is Body):
+		return
+
 	if (area.owner is Flower):
 		full_grown = true
 		if scale.x < 0.1:

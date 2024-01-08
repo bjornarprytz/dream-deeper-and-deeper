@@ -10,9 +10,16 @@ var talking: bool:
 			return
 		talking = value
 		_particles.emitting = talking
+		if (!talking):
+			_aoe.monitorable = false
+		else:
+			_aoe.monitorable = true
 
 var direction: Vector2:
 	set(value):
 		direction = value
 		_particles.direction = value
 		_aoe.rotation = direction.angle()
+
+func _ready() -> void:
+	_aoe.monitorable = false
