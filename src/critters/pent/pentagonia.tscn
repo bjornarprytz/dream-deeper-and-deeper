@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://critters/pent/pentagonia.gd" id="1_m28qs"]
 [ext_resource type="PackedScene" uid="uid://yp7iioou2jqm" path="res://tools/Body.tscn" id="2_xry6n"]
-[ext_resource type="PackedScene" uid="uid://bu04toiv8r3wn" path="res://critters/seed/pollen_burst.tscn" id="3_if6es"]
+[ext_resource type="PackedScene" uid="uid://bu04toiv8r3wn" path="res://critters/tokens/pollen_burst.tscn" id="3_if6es"]
 
 [node name="Pentagonia" type="Node2D"]
 script = ExtResource("1_m28qs")

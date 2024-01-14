@@ -12,10 +12,10 @@ func _ready() -> void:
 	
 	Global.chunk_changed.connect(_on_new_chunk)
 	
-	#_populate_chunk(Vector2i.ZERO)
+	_populate_chunk(Vector2i.ZERO)
 	
-	for chunk in Global.get_chunk_collection(Vector2i(0,0)):
-		_populate_chunk(chunk)
+	#for chunk in Global.get_chunk_collection(Vector2i(0,0)):
+	#	_populate_chunk(chunk)
 
 func _on_new_chunk(_old: Vector2i, _new: Vector2i):
 	_clean_up_stragglers()

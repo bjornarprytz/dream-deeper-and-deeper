@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://critters/hex/hexipremnum.gd" id="1_5g7sf"]
 [ext_resource type="PackedScene" uid="uid://yp7iioou2jqm" path="res://tools/Body.tscn" id="2_8y2kw"]
-[ext_resource type="PackedScene" uid="uid://bu04toiv8r3wn" path="res://critters/seed/pollen_burst.tscn" id="3_dfh32"]
+[ext_resource type="PackedScene" uid="uid://bu04toiv8r3wn" path="res://critters/tokens/pollen_burst.tscn" id="3_dfh32"]
 
 [node name="Hexipremnum" type="Node2D"]
 script = ExtResource("1_5g7sf")

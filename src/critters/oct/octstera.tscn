@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://critters/oct/octstera.gd" id="1_vah6k"]
 [ext_resource type="PackedScene" uid="uid://yp7iioou2jqm" path="res://tools/Body.tscn" id="2_iub8x"]
-[ext_resource type="PackedScene" uid="uid://bu04toiv8r3wn" path="res://critters/seed/pollen_burst.tscn" id="3_m7gkd"]
+[ext_resource type="PackedScene" uid="uid://bu04toiv8r3wn" path="res://critters/tokens/pollen_burst.tscn" id="3_m7gkd"]
 
 [node name="Octstera" type="Node2D"]
 script = ExtResource("1_vah6k")

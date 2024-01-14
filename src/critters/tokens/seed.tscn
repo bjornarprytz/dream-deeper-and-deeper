@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://dpjb6ok25fu10"]
 
-[ext_resource type="Script" path="res://critters/seed/seed.gd" id="1_q8iol"]
+[ext_resource type="Script" path="res://critters/tokens/seed.gd" id="1_q8iol"]
 [ext_resource type="FontFile" uid="uid://dlb4kcv6rrju8" path="res://assets/JetBrainsMono-VariableFont_wght.ttf" id="2_ucmq1"]
 
 [sub_resource type="Theme" id="Theme_g8j0u"]

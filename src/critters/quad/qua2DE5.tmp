@@ -10,7 +10,7 @@
 [ext_resource type="Script" path="res://addons/godot_state_charts/transition.gd" id="7_stdf3"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_uuqpq"]
-radius = 150.0
+radius = 90.0
 
 [sub_resource type="Theme" id="Theme_toqhe"]
 default_font = ExtResource("3_nk6mf")
@@ -97,7 +97,25 @@ initial_state = NodePath("Meandering")
 [node name="Meandering" type="Node" parent="StateChart/Root/Moving"]
 script = ExtResource("6_8n6u5")
 
+[node name="ToFlocking" type="Node" parent="StateChart/Root/Moving/Meandering"]
+script = ExtResource("7_stdf3")
+to = NodePath("../../Flocking")
+event = &"flock"
+
 [node name="ToHunting" type="Node" parent="StateChart/Root/Moving/Meandering"]
+script = ExtResource("7_stdf3")
+to = NodePath("../../Hunting")
+event = &"hunt"
+
+[node name="Flocking" type="Node" parent="StateChart/Root/Moving"]
+script = ExtResource("6_8n6u5")
+
+[node name="ToMeandering" type="Node" parent="StateChart/Root/Moving/Flocking"]
+script = ExtResource("7_stdf3")
+to = NodePath("../../Meandering")
+event = &"meander"
+
+[node name="ToHunting" type="Node" parent="StateChart/Root/Moving/Flocking"]
 script = ExtResource("7_stdf3")
 to = NodePath("../../Hunting")
 event = &"hunt"
@@ -148,6 +166,12 @@ script = ExtResource("7_stdf3")
 to = NodePath("../../Moving")
 event = &"move"
 
+[node name="StateDebug" type="RichTextLabel" parent="."]
+offset_left = -53.0
+offset_top = -77.0
+offset_right = 60.0
+offset_bottom = -37.0
+
 [connection signal="area_entered" from="Senses" to="." method="_on_senses_area_entered"]
 [connection signal="area_exited" from="Senses" to="." method="_on_senses_area_exited"]
 [connection signal="area_entered" from="Body" to="." method="_on_body_area_entered"]
@@ -157,6 +181,7 @@ event = &"move"
 [connection signal="state_physics_processing" from="StateChart/Root/Moving" to="." method="_on_moving_state_physics_processing"]
 [connection signal="state_entered" from="StateChart/Root/Moving/Meandering" to="." method="_on_meandering_state_entered"]
 [connection signal="state_physics_processing" from="StateChart/Root/Moving/Meandering" to="." method="_on_meandering_state_physics_processing"]
+[connection signal="state_physics_processing" from="StateChart/Root/Moving/Flocking" to="." method="_on_flocking_state_physics_processing"]
 [connection signal="state_entered" from="StateChart/Root/Moving/Hunting" to="." method="_on_hunting_state_entered"]
 [connection signal="state_physics_processing" from="StateChart/Root/Moving/Hunting" to="." method="_on_hunting_state_physics_processing"]
 [connection signal="state_physics_processing" from="StateChart/Root/Stationary/Grazing" to="." method="_on_grassing_state_physics_processing"]

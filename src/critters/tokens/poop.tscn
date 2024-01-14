@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://cxehlifwlm2ky"]
+
+[ext_resource type="FontFile" uid="uid://dlb4kcv6rrju8" path="res://assets/JetBrainsMono-VariableFont_wght.ttf" id="1_cmy1n"]
+
+[sub_resource type="Theme" id="Theme_nytj8"]
+default_font = ExtResource("1_cmy1n")
+default_font_size = 256
+
+[node name="Poop" type="Node2D"]
+modulate = Color(0.282353, 0.223529, 0.0352941, 1)
+
+[node name="Text" type="RichTextLabel" parent="."]
+offset_left = -9.0
+offset_top = -18.0
+offset_right = 252.0
+offset_bottom = 364.0
+scale = Vector2(0.1, 0.1)
+theme = SubResource("Theme_nytj8")
+text = "@"
