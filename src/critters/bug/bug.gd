@@ -43,6 +43,8 @@ class PollenSack:
 		return amount
 
 const max_energy := 100.0
+const poop_eating_speed := 20.0
+const poop_perimimiter := 25.0
 @onready var energy = max_energy
 
 @onready var left_wing : Node2D = $LeftWing
@@ -133,13 +135,14 @@ func _on_landed_state_exited() -> void:
 func _on_buzzing_state_physics_processing(delta: float) -> void:
 	flap_speed = lerp(flap_speed, poop_flap_speed, delta)
 	
-	
 	if (poop == null or !poop.available):
 		poop = null
 		state_chart.send_event("fly")
 		return
+	elif (global_position - target).length() < 5.0:
+		target = poop.global_position + (Global.random_vector2().normalized() * poop_perimimiter)
 	
-	poop.hp -= (delta * 15.0)
+	poop.hp -= (delta * poop_eating_speed)
 
 func _process_fleeing(delta: float) -> void:
 	flap_speed = lerp(flap_speed, take_off_flap_speed, delta)
