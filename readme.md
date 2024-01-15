@@ -54,10 +54,6 @@ Transitions between the worlds should be related to the magic. Maybe the player 
     - https://colorhunt.co/palette/9adcfffff89affb2a6ff8aae
 - Generation
   - Clean up stragglers outside chunk bounds
-- Behaviour
-  - Flocking
-  - Interact with the player
-  - Speed
 - Player
   - Appearance: Catterpillar (Like Mario Chomp Chomp)
   - Emoting:
@@ -83,18 +79,12 @@ Transitions between the worlds should be related to the magic. Maybe the player 
     - Investigate
       - Dance
       - Pick Flower
-  - Quad
-    - Meander
-    - Interact
-      - Eat (Flower)
-        - Poop
-      - Flock (Quad)
   - Circ
-    - Pick Flowers
-    - Plant Seeds
+    - Pick Seeds
+    - Pick Poop
     - Interact
       - Sing (Circ, Player, Tri)
-      - Feed (Quad)
+      - Get full of shit and seeds
   - Seeds
     - Create Portal
 
@@ -113,6 +103,8 @@ Transitions between the worlds should be related to the magic. Maybe the player 
   - Escape sudden movement
     - Startled-indicator (anime like -`.´- around it)
     - How sudden depends on remaining energy (high energy = fast reaction)
+- Quad
+  - Dance
 - Player
   - Add music notes to the talking-sheet
 - Flowers

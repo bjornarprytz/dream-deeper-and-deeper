@@ -62,7 +62,7 @@ func _on_body_area_entered(area: Area2D) -> void:
 		full_grown = true
 		if scale.x < 0.1:
 			queue_free()
-	elif (area.owner is Player):
+	elif (area.owner is Player or area.owner is Tri):
 		if (seed != null):
 			_spread_seed()
 

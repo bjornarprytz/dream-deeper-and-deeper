@@ -25,18 +25,3 @@ func _unhandled_input(event: InputEvent) -> void:
 			_zoom_target = lerp(_base_zoom, zoom_out_level, event.axis_value)
 		if (event.axis == 5):
 			_zoom_target = lerp(_base_zoom, zoom_in_level, event.axis_value)
-
-var zoom_tween : Tween
-
-var is_zooming_in : bool:
-	set(value):
-		if (value == is_zooming_in):
-			return
-		is_zooming_in = value
-		
-		if (zoom_tween != null):
-			zoom_tween.kill()
-		
-		if (is_zooming_in):
-			zoom_tween = create_tween().set_ease(Tween.EASE_OUT)
-			zoom_tween.tween_pro

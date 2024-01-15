@@ -100,6 +100,11 @@ script = ExtResource("6_7vw7m")
 to = NodePath("../../Landing")
 event = &"landing"
 
+[node name="ToBuzzing" type="Node" parent="StateChart/Root/Flying/Searching"]
+script = ExtResource("6_7vw7m")
+to = NodePath("../../Buzzing")
+event = &"buzz"
+
 [node name="Landing" type="Node" parent="StateChart/Root/Flying"]
 script = ExtResource("5_chp10")
 
@@ -113,6 +118,14 @@ script = ExtResource("6_7vw7m")
 to = NodePath("../..")
 event = &"abort_landing"
 
+[node name="Buzzing" type="Node" parent="StateChart/Root/Flying"]
+script = ExtResource("5_chp10")
+
+[node name="ToFlying" type="Node" parent="StateChart/Root/Flying/Buzzing"]
+script = ExtResource("6_7vw7m")
+to = NodePath("../..")
+event = &"fly"
+
 [connection signal="area_entered" from="Sensors" to="." method="_on_sensors_area_entered"]
 [connection signal="area_exited" from="Sensors" to="." method="_on_sensors_area_exited"]
 [connection signal="state_entered" from="StateChart/Root/Landed" to="." method="_on_landed_state_entered"]
@@ -123,3 +136,4 @@ event = &"abort_landing"
 [connection signal="state_entered" from="StateChart/Root/Flying/Searching" to="." method="_on_searching_state_entered"]
 [connection signal="state_physics_processing" from="StateChart/Root/Flying/Searching" to="." method="_process_searching"]
 [connection signal="state_physics_processing" from="StateChart/Root/Flying/Landing" to="." method="_process_landing"]
+[connection signal="state_physics_processing" from="StateChart/Root/Flying/Buzzing" to="." method="_on_buzzing_state_physics_processing"]

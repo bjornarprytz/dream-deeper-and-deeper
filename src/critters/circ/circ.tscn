@@ -1,10 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://b32u018e5vcwy"]
+[gd_scene load_steps=9 format=3 uid="uid://b32u018e5vcwy"]
 
 [ext_resource type="Script" path="res://critters/circ/circ.gd" id="1_jn2c7"]
 [ext_resource type="PackedScene" uid="uid://yp7iioou2jqm" path="res://tools/Body.tscn" id="2_a7c8k"]
+[ext_resource type="Script" path="res://addons/godot_state_charts/state_chart.gd" id="3_beghc"]
+[ext_resource type="Script" path="res://addons/godot_state_charts/compound_state.gd" id="4_mxkfm"]
+[ext_resource type="Script" path="res://addons/godot_state_charts/atomic_state.gd" id="5_vw3gw"]
+[ext_resource type="Script" path="res://addons/godot_state_charts/transition.gd" id="6_qht56"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0yikk"]
-radius = 180.0
+radius = 250.0
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_hn670"]
 
 [node name="Circ" type="Node2D"]
 script = ExtResource("1_jn2c7")
@@ -19,3 +25,63 @@ shape = SubResource("CircleShape2D_0yikk")
 [node name="Body" parent="." instance=ExtResource("2_a7c8k")]
 n_sides = 30
 polygon = PackedVector2Array(25, 0, 24.4537, 5.19779, 22.8386, 10.1684, 20.2254, 14.6946, 16.7283, 18.5786, 12.5, 21.6506, 7.72542, 23.7764, 2.61321, 24.863, -2.61321, 24.863, -7.72542, 23.7764, -12.5, 21.6506, -16.7283, 18.5786, -20.2254, 14.6946, -22.8386, 10.1684, -24.4537, 5.19779, -25, 3.06152e-15, -24.4537, -5.19779, -22.8386, -10.1684, -20.2254, -14.6946, -16.7283, -18.5786, -12.5, -21.6506, -7.72542, -23.7764, -2.61321, -24.863, 2.61321, -24.863, 7.72542, -23.7764, 12.5, -21.6506, 16.7283, -18.5786, 20.2254, -14.6946, 22.8386, -10.1684, 24.4537, -5.19779)
+
+[node name="Belly" type="StaticBody2D" parent="."]
+physics_material_override = SubResource("PhysicsMaterial_hn670")
+
+[node name="Shape" type="CollisionPolygon2D" parent="Belly"]
+build_mode = 1
+polygon = PackedVector2Array(25, 0, 24.4537, 5.19779, 22.8386, 10.1684, 20.2254, 14.6946, 16.7283, 18.5786, 12.5, 21.6506, 7.72542, 23.7764, 2.61321, 24.863, -2.61321, 24.863, -7.72542, 23.7764, -12.5, 21.6506, -16.7283, 18.5786, -20.2254, 14.6946, -22.8386, 10.1684, -24.4537, 5.19779, -25, 3.06152e-15, -24.4537, -5.19779, -22.8386, -10.1684, -20.2254, -14.6946, -16.7283, -18.5786, -12.5, -21.6506, -7.72542, -23.7764, -2.61321, -24.863, 2.61321, -24.863, 7.72542, -23.7764, 12.5, -21.6506, 16.7283, -18.5786, 20.2254, -14.6946, 22.8386, -10.1684, 24.4537, -5.19779)
+
+[node name="StateChart" type="Node" parent="."]
+script = ExtResource("3_beghc")
+
+[node name="Root" type="Node" parent="StateChart"]
+script = ExtResource("4_mxkfm")
+initial_state = NodePath("Moving")
+
+[node name="Moving" type="Node" parent="StateChart/Root"]
+script = ExtResource("4_mxkfm")
+initial_state = NodePath("Meandering")
+
+[node name="Meandering" type="Node" parent="StateChart/Root/Moving"]
+script = ExtResource("5_vw3gw")
+
+[node name="ToApproaching" type="Node" parent="StateChart/Root/Moving/Meandering"]
+script = ExtResource("6_qht56")
+to = NodePath("../../Approaching")
+event = &"approach"
+
+[node name="Approaching" type="Node" parent="StateChart/Root/Moving"]
+script = ExtResource("5_vw3gw")
+
+[node name="Stationary" type="Node" parent="StateChart/Root"]
+script = ExtResource("4_mxkfm")
+initial_state = NodePath("Singing")
+
+[node name="Dancing" type="Node" parent="StateChart/Root/Stationary"]
+script = ExtResource("5_vw3gw")
+
+[node name="Singing" type="Node" parent="StateChart/Root/Stationary"]
+script = ExtResource("5_vw3gw")
+
+[node name="ToDancing" type="Node" parent="StateChart/Root"]
+script = ExtResource("6_qht56")
+to = NodePath("../Stationary/Dancing")
+event = &"dance"
+
+[node name="ToMoving" type="Node" parent="StateChart/Root"]
+script = ExtResource("6_qht56")
+to = NodePath("../Moving")
+event = &"move"
+
+[node name="ToSinging" type="Node" parent="StateChart/Root"]
+script = ExtResource("6_qht56")
+to = NodePath("../Stationary/Singing")
+event = &"sing"
+
+[connection signal="area_entered" from="Body" to="." method="_on_body_area_entered"]
+[connection signal="state_physics_processing" from="StateChart/Root/Moving/Meandering" to="." method="_on_meandering_state_physics_processing"]
+[connection signal="state_physics_processing" from="StateChart/Root/Moving/Approaching" to="." method="_on_approaching_state_physics_processing"]
+[connection signal="state_physics_processing" from="StateChart/Root/Stationary/Dancing" to="." method="_on_dancing_state_physics_processing"]
+[connection signal="state_physics_processing" from="StateChart/Root/Stationary/Singing" to="." method="_on_singing_state_physics_processing"]

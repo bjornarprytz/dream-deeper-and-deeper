@@ -69,6 +69,7 @@ const max_energy := 100.0
 		
 		form = value
 
+const poop_flap_speed := 8.0
 const flying_flap_speed := 10.0
 const take_off_flap_speed := 15.0
 const landing_flap_speed := 5.0
@@ -78,6 +79,8 @@ var target : Vector2
 var threats : Array[Node2D]
 var flower : Flower
 var pollen_sack : PollenSack
+
+var poop : Poop
 
 var flap_speed := flying_flap_speed
 
@@ -127,6 +130,17 @@ func _process_landed(delta: float) -> void:
 func _on_landed_state_exited() -> void:
 	flower.occupied = false
 
+func _on_buzzing_state_physics_processing(delta: float) -> void:
+	flap_speed = lerp(flap_speed, poop_flap_speed, delta)
+	
+	
+	if (poop == null or !poop.available):
+		poop = null
+		state_chart.send_event("fly")
+		return
+	
+	poop.hp -= (delta * 15.0)
+
 func _process_fleeing(delta: float) -> void:
 	flap_speed = lerp(flap_speed, take_off_flap_speed, delta)
 	
@@ -159,15 +173,16 @@ func _process_flying(delta: float) -> void:
 	global_rotation = lerp(global_rotation, global_rotation - angle_to_target, delta * rotation_strength)
 
 func _on_sensors_area_entered(area: Area2D) -> void:
-	if !(area is Body):
-		return
-	
 	var thing = area.owner
 	
 	if (thing is Flower and _flower_is_candidate(thing)):
 		flower = thing
 		target = flower.global_position
 		state_chart.send_event("landing")
+	elif (poop == null and thing is Poop):
+		poop = thing
+		target = poop.global_position
+		state_chart.send_event("buzz")
 	elif(thing is Critter or thing is Player):
 		threats.push_back(thing)
 		state_chart.send_event("flee")
@@ -184,7 +199,10 @@ func _flower_is_candidate(f: Flower) -> bool:
 
 func _on_searching_state_entered() -> void:
 	flower = null
-	_set_random_target()
+	if (poop != null):
+		state_chart.send_event("buzz")
+	else:
+		_set_random_target()
 
 func _set_random_target():
 	target = global_position + (Global.random_vector2() * randf_range(60.0, 80.0))
@@ -198,4 +216,3 @@ func _on_sensors_area_exited(area: Area2D) -> void:
 		threats.erase(thing)
 		if threats.is_empty():
 			state_chart.send_event("search")
-

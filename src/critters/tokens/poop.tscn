@@ -1,13 +1,18 @@
-[gd_scene load_steps=3 format=3 uid="uid://cxehlifwlm2ky"]
+[gd_scene load_steps=5 format=3 uid="uid://cxehlifwlm2ky"]
 
 [ext_resource type="FontFile" uid="uid://dlb4kcv6rrju8" path="res://assets/JetBrainsMono-VariableFont_wght.ttf" id="1_cmy1n"]
+[ext_resource type="Script" path="res://critters/tokens/poop.gd" id="1_ll4u5"]
 
 [sub_resource type="Theme" id="Theme_nytj8"]
 default_font = ExtResource("1_cmy1n")
 default_font_size = 256
 
-[node name="Poop" type="Node2D"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_ix5i5"]
+radius = 30.0
+
+[node name="Poop" type="RigidBody2D"]
 modulate = Color(0.282353, 0.223529, 0.0352941, 1)
+script = ExtResource("1_ll4u5")
 
 [node name="Text" type="RichTextLabel" parent="."]
 offset_left = -9.0
@@ -17,3 +22,12 @@ offset_bottom = 364.0
 scale = Vector2(0.1, 0.1)
 theme = SubResource("Theme_nytj8")
 text = "@"
+
+[node name="Shape" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(5, 6, 5, -7, 3, -10, -1, -11, -5, -10, -7, -7, -8, -4, -8, 6, -7, 9, -4, 12, -1, 13, 1, 13, 1, 11, -2, 11, -5, 9, -6, 4, -6, -4, -4, -8, 0, -9, 3, -7, -1, -4, -3, -1, -3, 4, -2, 6, 0, 7, 2, 7)
+
+[node name="Smell" type="Area2D" parent="."]
+monitoring = false
+
+[node name="Shape" type="CollisionShape2D" parent="Smell"]
+shape = SubResource("CircleShape2D_ix5i5")

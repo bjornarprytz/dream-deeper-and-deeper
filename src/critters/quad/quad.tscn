@@ -105,15 +105,15 @@ event = &"hunt"
 [node name="Hunting" type="Node" parent="StateChart/Root/Moving"]
 script = ExtResource("6_8n6u5")
 
-[node name="ToMoving" type="Node" parent="StateChart/Root/Moving/Hunting"]
-script = ExtResource("7_stdf3")
-to = NodePath("../..")
-event = &"move"
-
 [node name="ToGrazing" type="Node" parent="StateChart/Root/Moving/Hunting"]
 script = ExtResource("7_stdf3")
 to = NodePath("../../../Stationary/Grazing")
 event = &"graze"
+
+[node name="ToMoving" type="Node" parent="StateChart/Root/Moving/Hunting"]
+script = ExtResource("7_stdf3")
+to = NodePath("../..")
+event = &"move"
 
 [node name="ToDancing" type="Node" parent="StateChart/Root/Moving"]
 script = ExtResource("7_stdf3")

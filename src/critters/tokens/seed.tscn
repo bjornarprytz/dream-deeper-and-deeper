@@ -27,3 +27,6 @@ monitorable = false
 
 [node name="Shape" type="CollisionShape2D" parent="Sensor"]
 shape = SubResource("CircleShape2D_acjc3")
+
+[node name="Shape" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(6, 13, 10, 10, 2, 1, 14, -2, 12, -7, 2, -2, 3, -14, -2, -14, -1, -2, -12, -7, -13, -2, -2, 1, -10, 10, -6, 13, 0, 2)

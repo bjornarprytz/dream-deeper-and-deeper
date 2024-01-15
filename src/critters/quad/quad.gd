@@ -158,8 +158,8 @@ func _on_grassing_state_physics_processing(delta: float) -> void:
 		state_chart.send_event("move")
 	else:
 		for flower in flowers_underfoot:		
-			flower.pollen -= (.3 * delta)
-			fullness += (Color.WHITE * .4 * delta)
+			flower.pollen -= (.2 * delta)
+			fullness += (Color.WHITE * .2 * delta)
 
 func _get_food_underfoot() -> Array[Flower]:
 	var _fs: Array[Flower] = []
@@ -172,7 +172,7 @@ func _on_pooping_state_entered() -> void:
 	$Body/Face.text = "XI"
 	
 	var tween = create_tween()
-	tween.tween_property(my_body, "modulate", Color.CRIMSON, 1.0)
+	tween.tween_property(my_body, "modulate", Color.CRIMSON, 3.0)
 	await tween.finished
 	
 	var poop = poop_spawner.instantiate() as Node2D
