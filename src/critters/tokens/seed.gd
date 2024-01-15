@@ -2,7 +2,6 @@ class_name Seed
 extends Node2D
 
 @onready var sensor : Area2D = $Sensor
-
 @onready var base_scale : Vector2 = global_scale
 
 func activate():
@@ -26,7 +25,7 @@ func _wobble(t: float):
 	
 
 func _on_sensor_area_entered(area: Area2D) -> void:
-	if (area.owner is Critter or area.owner is Player):
+	if (area.owner is Quad or area.owner is Player):
 		reparent.call_deferred(area.owner)
 		global_scale = base_scale
 		sensor.disconnect("area_entered", _on_sensor_area_entered)

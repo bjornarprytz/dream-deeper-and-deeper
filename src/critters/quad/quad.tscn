@@ -33,6 +33,7 @@ point_count = 2
 
 [node name="Quad" type="Node2D"]
 script = ExtResource("1_g7j6l")
+speed = null
 
 [node name="Senses" type="Area2D" parent="."]
 monitorable = false

@@ -1,10 +1,9 @@
 class_name Quad
 extends Critter
 
-@onready var senses : Area2D = $Senses
+
 @onready var senses_shape : CollisionShape2D = $Senses/Shape
 @onready var emotions : Area2D = $Emotions
-@onready var my_body : Body = $Body
 @onready var love: CPUParticles2D = $Love
 @onready var state_chart: StateChart = $StateChart
 

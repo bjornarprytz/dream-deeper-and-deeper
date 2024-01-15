@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://dw7xfv3ysbqko"]
+
+[ext_resource type="FontFile" uid="uid://dlb4kcv6rrju8" path="res://assets/JetBrainsMono-VariableFont_wght.ttf" id="1_2vj5l"]
+
+[sub_resource type="Theme" id="Theme_5e5wq"]
+default_font = ExtResource("1_2vj5l")
+default_font_size = 256
+
+[node name="SeedRigidBody" type="RigidBody2D"]
+
+[node name="Symbol" type="RichTextLabel" parent="."]
+offset_left = -15.0
+offset_top = -35.0
+offset_right = 165.0
+offset_bottom = 315.0
+scale = Vector2(0.2, 0.2)
+mouse_filter = 2
+theme = SubResource("Theme_5e5wq")
+text = "*"
+metadata/_edit_use_anchors_ = true
+
+[node name="Shape" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(6, 13, 10, 10, 2, 1, 14, -2, 12, -7, 2, -2, 3, -14, -2, -14, -1, -2, -12, -7, -13, -2, -2, 1, -10, 10, -6, 13, 0, 2)

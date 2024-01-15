@@ -9,7 +9,7 @@ var available : bool = true:
 			return
 		
 		available = value
-		smell.monitorable = value
+		smell.set_deferred("monitorable", value)
 
 var hp = 100.0:
 	set(value):

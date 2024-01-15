@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://b32u018e5vcwy"]
+[gd_scene load_steps=10 format=3 uid="uid://b32u018e5vcwy"]
 
 [ext_resource type="Script" path="res://critters/circ/circ.gd" id="1_jn2c7"]
 [ext_resource type="PackedScene" uid="uid://yp7iioou2jqm" path="res://tools/Body.tscn" id="2_a7c8k"]
@@ -11,6 +11,9 @@
 radius = 250.0
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_hn670"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vuml3"]
+radius = 15.0
 
 [node name="Circ" type="Node2D"]
 script = ExtResource("1_jn2c7")
@@ -30,8 +33,15 @@ polygon = PackedVector2Array(25, 0, 24.4537, 5.19779, 22.8386, 10.1684, 20.2254,
 physics_material_override = SubResource("PhysicsMaterial_hn670")
 
 [node name="Shape" type="CollisionPolygon2D" parent="Belly"]
+scale = Vector2(0.6, 0.6)
 build_mode = 1
 polygon = PackedVector2Array(25, 0, 24.4537, 5.19779, 22.8386, 10.1684, 20.2254, 14.6946, 16.7283, 18.5786, 12.5, 21.6506, 7.72542, 23.7764, 2.61321, 24.863, -2.61321, 24.863, -7.72542, 23.7764, -12.5, 21.6506, -16.7283, 18.5786, -20.2254, 14.6946, -22.8386, 10.1684, -24.4537, 5.19779, -25, 3.06152e-15, -24.4537, -5.19779, -22.8386, -10.1684, -20.2254, -14.6946, -16.7283, -18.5786, -12.5, -21.6506, -7.72542, -23.7764, -2.61321, -24.863, 2.61321, -24.863, 7.72542, -23.7764, 12.5, -21.6506, 16.7283, -18.5786, 20.2254, -14.6946, 22.8386, -10.1684, 24.4537, -5.19779)
+
+[node name="Gravity" type="Area2D" parent="Belly"]
+gravity_space_override = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Belly/Gravity"]
+shape = SubResource("CircleShape2D_vuml3")
 
 [node name="StateChart" type="Node" parent="."]
 script = ExtResource("3_beghc")
