@@ -69,16 +69,9 @@ Transitions between the worlds should be related to the magic. Maybe the player 
 - Bug
   - Palette
   - Escape sudden movement
-    - Startled-indicator (anime like -`.´- around it)
     - How sudden depends on remaining energy (high energy = fast reaction)
-- Quad
-  - Dance
 - Player
   - Add music notes to the talking-sheet
-- Flowers
-  - Grow seeds gradually
-  - More responsive
-    - Jiggle
 
 ### Extra
 

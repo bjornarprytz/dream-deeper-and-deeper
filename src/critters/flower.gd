@@ -54,17 +54,26 @@ func _spread_seed():
 	seed = null
 	pollen_burst.emitting = true
 
+func jiggle():
+	var tween = create_tween().set_trans(Tween.TRANS_ELASTIC).set_ease(Tween.EASE_OUT)
+	tween.tween_method(_jiggle_step, 1.0, 0.0, 3.0)
+
+func _jiggle_step(f: float):
+	bud.rotation = pingpong(f, .4)
+
 func _on_body_area_entered(area: Area2D) -> void:
 	if !(area is Body):
 		return
-
+		
 	if (area.owner is Flower):
 		full_grown = true
 		if scale.x < 0.1:
 			queue_free()
-	elif (area.owner is Player or area.owner is Tri):
-		if (seed != null):
-			_spread_seed()
+	else:
+		jiggle()
+		if (area.owner is Player or area.owner is Tri):
+			if (seed != null):
+				_spread_seed()
 
 func _try_grow_seed():
 	if (max_pollen == pollen and full_grown and seed == null):

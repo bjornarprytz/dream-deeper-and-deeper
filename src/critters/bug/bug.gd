@@ -44,7 +44,7 @@ class PollenSack:
 
 const max_energy := 100.0
 const poop_eating_speed := 20.0
-const poop_perimimiter := 25.0
+const poop_perimimiter := 35.0
 @onready var energy = max_energy
 
 @onready var left_wing : Node2D = $LeftWing
@@ -144,6 +144,11 @@ func _on_buzzing_state_physics_processing(delta: float) -> void:
 	
 	poop.hp -= (delta * poop_eating_speed)
 
+func _on_fleeing_state_entered() -> void:
+	for i in range(6):
+		await get_tree().create_timer(.1).timeout
+		$Startled.visible = !$Startled.visible
+
 func _process_fleeing(delta: float) -> void:
 	flap_speed = lerp(flap_speed, take_off_flap_speed, delta)
 	
@@ -219,3 +224,5 @@ func _on_sensors_area_exited(area: Area2D) -> void:
 		threats.erase(thing)
 		if threats.is_empty():
 			state_chart.send_event("search")
+
+

@@ -32,9 +32,9 @@ func _clean_up_stragglers():
 func _populate_chunk(chunk_coord: Vector2i):	
 	var seed = rand_from_seed(Global.get_chunk_seed(chunk_coord))
 	
-	const n_flowers = 12
+	const n_flowers = 8
 	const n_critters = 2
-	const n_bugs = 4
+	const n_bugs = 6
 	
 	for i in range(n_flowers):
 		var flower = Spawn.flower()

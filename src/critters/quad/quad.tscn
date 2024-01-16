@@ -44,6 +44,8 @@ shape = SubResource("CircleShape2D_uuqpq")
 [node name="Body" parent="." instance=ExtResource("2_28qxc")]
 n_sides = 4
 polygon = PackedVector2Array(25, 0, 1.53076e-15, 25, -25, 3.06152e-15, -4.59227e-15, -25)
+border_color = Color(0.776471, 0.776471, 0.776471, 1)
+border_width = 2.0
 
 [node name="Face" type="RichTextLabel" parent="Body"]
 modulate = Color(0, 0, 0, 1)

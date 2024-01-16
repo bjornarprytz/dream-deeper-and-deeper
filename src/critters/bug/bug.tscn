@@ -50,6 +50,23 @@ text = "b
 scroll_active = false
 metadata/_edit_use_anchors_ = true
 
+[node name="Startled" type="Node2D" parent="."]
+visible = false
+
+[node name="Emote" type="RichTextLabel" parent="Startled"]
+offset_left = -10.0
+offset_top = -15.0
+offset_right = 990.0
+offset_bottom = 985.0
+rotation = 1.5708
+scale = Vector2(0.05, -0.05)
+theme = SubResource("Theme_5eh2i")
+bbcode_enabled = true
+text = "-`´-
+"
+scroll_active = false
+metadata/_edit_use_anchors_ = true
+
 [node name="Sensors" type="Area2D" parent="."]
 
 [node name="Shape" type="CollisionShape2D" parent="Sensors"]
@@ -132,6 +149,7 @@ event = &"fly"
 [connection signal="state_exited" from="StateChart/Root/Landed" to="." method="_on_landed_state_exited"]
 [connection signal="state_physics_processing" from="StateChart/Root/Landed" to="." method="_process_landed"]
 [connection signal="state_physics_processing" from="StateChart/Root/Flying" to="." method="_process_flying"]
+[connection signal="state_entered" from="StateChart/Root/Flying/Fleeing" to="." method="_on_fleeing_state_entered"]
 [connection signal="state_physics_processing" from="StateChart/Root/Flying/Fleeing" to="." method="_process_fleeing"]
 [connection signal="state_entered" from="StateChart/Root/Flying/Searching" to="." method="_on_searching_state_entered"]
 [connection signal="state_physics_processing" from="StateChart/Root/Flying/Searching" to="." method="_process_searching"]
