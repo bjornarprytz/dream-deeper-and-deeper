@@ -102,7 +102,7 @@ func _process(delta: float) -> void:
 func random_color() -> Color:
 	return Color(randf(), randf(), randf())
 func random_vector2() -> Vector2:
-	return Vector2(randf_range(-1.0, 1.0), randf_range(-1.0, 1.0))
+	return Vector2(randf_range(-1.0, 1.0), randf_range(-1.0, 1.0)).normalized()
 
 func color_from_unit_circle(point: Vector2) -> Color:
 	# Convert point from Cartesian to polar coordinates

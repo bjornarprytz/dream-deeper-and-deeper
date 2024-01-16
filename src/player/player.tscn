@@ -1,8 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://ccthk6lgcm7y"]
+[gd_scene load_steps=6 format=3 uid="uid://ccthk6lgcm7y"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_l6ult"]
 [ext_resource type="PackedScene" uid="uid://yp7iioou2jqm" path="res://tools/Body.tscn" id="2_hqlah"]
 [ext_resource type="PackedScene" uid="uid://57br4s77ae2g" path="res://tools/Words.tscn" id="3_b0h8u"]
+[ext_resource type="FontFile" uid="uid://dlb4kcv6rrju8" path="res://assets/JetBrainsMono-VariableFont_wght.ttf" id="4_wqv10"]
+
+[sub_resource type="Theme" id="Theme_cg74u"]
+default_font = ExtResource("4_wqv10")
+default_font_size = 256
 
 [node name="Player" type="Node2D"]
 script = ExtResource("1_l6ult")
@@ -12,9 +17,14 @@ radius = 16.0
 n_sides = 30
 polygon = PackedVector2Array(16, 0, 15.6504, 3.32659, 14.6167, 6.50779, 12.9443, 9.40456, 10.7061, 11.8903, 8, 13.8564, 4.94427, 15.2169, 1.67246, 15.9124, -1.67246, 15.9124, -4.94427, 15.2169, -8, 13.8564, -10.7061, 11.8903, -12.9443, 9.40456, -14.6167, 6.50779, -15.6504, 3.32659, -16, 1.95937e-15, -15.6504, -3.32659, -14.6167, -6.50779, -12.9443, -9.40456, -10.7061, -11.8903, -8, -13.8564, -4.94427, -15.2169, -1.67246, -15.9124, 1.67246, -15.9124, 4.94427, -15.2169, 8, -13.8564, 10.7061, -11.8903, 12.9443, -9.40456, 14.6167, -6.50779, 15.6504, -3.32659)
 
-[node name="Nose" type="Line2D" parent="."]
-points = PackedVector2Array(16, 0, 0, 0)
-width = 2.0
-default_color = Color(0, 0, 0, 1)
-
 [node name="Words" parent="." instance=ExtResource("3_b0h8u")]
+
+[node name="Face" type="RichTextLabel" parent="."]
+modulate = Color(0, 0, 0, 1)
+offset_left = 1.0
+offset_top = -9.0
+offset_right = 501.0
+offset_bottom = 331.0
+scale = Vector2(0.05, 0.05)
+theme = SubResource("Theme_cg74u")
+text = ":)"

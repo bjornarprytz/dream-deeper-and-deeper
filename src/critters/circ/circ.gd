@@ -23,13 +23,13 @@ func _on_approaching_state_physics_processing(delta: float) -> void:
 func _on_body_area_entered(area: Area2D) -> void:
 	var thing = area.owner
 	if thing is Poop:
-		thing.reparent.call_deferred(get_tree().root)
+		thing.reparent.call_deferred($Belly/Contents)
 		thing.global_position = global_position
 		thing.available = false
 	elif thing is Seed:
 		thing.queue_free()
 		var seed = seed_spawner.instantiate()
-		add_child(seed)
+		$Belly/Contents.add_child.call_deferred(seed)
 
 
 func _on_planting_state_physics_processing(delta: float) -> void:

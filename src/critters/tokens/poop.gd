@@ -1,4 +1,4 @@
-class_name Poop extends RigidBody2D
+class_name Poop extends Node2D
 
 @onready var smell : Area2D = $Smell
 

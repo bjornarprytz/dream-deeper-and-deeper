@@ -140,7 +140,7 @@ func _on_buzzing_state_physics_processing(delta: float) -> void:
 		state_chart.send_event("fly")
 		return
 	elif (global_position - target).length() < 5.0:
-		target = poop.global_position + (Global.random_vector2().normalized() * poop_perimimiter)
+		target = poop.global_position + (Global.random_vector2() * poop_perimimiter)
 	
 	poop.hp -= (delta * poop_eating_speed)
 

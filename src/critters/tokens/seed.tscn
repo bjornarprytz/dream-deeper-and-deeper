@@ -24,7 +24,6 @@ text = "*"
 metadata/_edit_use_anchors_ = true
 
 [node name="Sensor" type="Area2D" parent="."]
-monitorable = false
 
 [node name="Shape" type="CollisionShape2D" parent="Sensor"]
 shape = SubResource("CircleShape2D_acjc3")

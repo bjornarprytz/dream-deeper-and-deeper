@@ -26,18 +26,6 @@ Transitions between the worlds should be related to the magic. Maybe the player 
 
 #### Fauna
 
-- Tri
-  - Inquisitive
-  - Mischievous
-  - Loner
-  - Dances
-- Quad
-  - Flocking
-  - Dances
-  - Grasses on Flowers
-- Circ
-  - Sings
-  - Picks Flowers for braiding
 - Bug
   - Buzzes around on vector paths
   - Lands on flowers
@@ -54,10 +42,6 @@ Transitions between the worlds should be related to the magic. Maybe the player 
     - https://colorhunt.co/palette/9adcfffff89affb2a6ff8aae
 - Generation
   - Clean up stragglers outside chunk bounds
-- Player
-  - Appearance: Catterpillar (Like Mario Chomp Chomp)
-  - Emoting:
-    - Jump all catterpillar sections (RB/LB)
 - Mechanics
   - Gather color drops
   - Grow the Catterpillar: Zoom out
@@ -71,22 +55,6 @@ Transitions between the worlds should be related to the magic. Maybe the player 
   - Bugs
 
 ### Behaviour
-
-- Critters
-  - Tri
-    - Goal: Get pretty
-    - Meander
-    - Investigate
-      - Dance
-      - Pick Flower
-  - Circ
-    - Pick Seeds
-    - Pick Poop
-    - Interact
-      - Sing (Circ, Player, Tri)
-      - Get full of shit and seeds
-  - Seeds
-    - Create Portal
 
 - Push release with `./push_release.sh`
 

@@ -43,6 +43,11 @@ gravity_space_override = 3
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Belly/Gravity"]
 shape = SubResource("CircleShape2D_vuml3")
 
+[node name="Contents" type="Polygon2D" parent="Belly"]
+scale = Vector2(0.6, 0.6)
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(25, 0, 24.4537, 5.19779, 22.8386, 10.1684, 20.2254, 14.6946, 16.7283, 18.5786, 12.5, 21.6506, 7.72542, 23.7764, 2.61321, 24.863, -2.61321, 24.863, -7.72542, 23.7764, -12.5, 21.6506, -16.7283, 18.5786, -20.2254, 14.6946, -22.8386, 10.1684, -24.4537, 5.19779, -25, 3.06152e-15, -24.4537, -5.19779, -22.8386, -10.1684, -20.2254, -14.6946, -16.7283, -18.5786, -12.5, -21.6506, -7.72542, -23.7764, -2.61321, -24.863, 2.61321, -24.863, 7.72542, -23.7764, 12.5, -21.6506, 16.7283, -18.5786, 20.2254, -14.6946, 22.8386, -10.1684, 24.4537, -5.19779)
+
 [node name="StateChart" type="Node" parent="."]
 script = ExtResource("3_beghc")
 

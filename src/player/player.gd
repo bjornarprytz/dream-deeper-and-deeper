@@ -1,10 +1,12 @@
 class_name Player
 extends Node2D
 
-
+@onready var segment_spawner = preload("res://player/segments.tscn")
 @onready var words : Words = $Words
+@onready var body : Body = $Body
 
 var speed = 200
+var segments : Segment
 const rotate_speed = 20.0
 const scale_multiplier = 1.8
 const min_scale = 0.4
@@ -13,23 +15,29 @@ func _ready() -> void:
 	assert(Global.player == null)
 	Global.player = self
 	modulate = Global.palette_character
+	
+	segments = segment_spawner.instantiate() as Segment
+	segments.prev_segment = self
+	segments.prev_size = body.radius
+	segments.speed = speed
+	segments.modulate = modulate * .9
+	add_sibling.call_deferred(segments)
+	segments.position = position
 
 func _physics_process(delta: float) -> void:
 	var input_vector := Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 	
+	if(input_vector.length() > 0.001):
+		rotation = input_vector.angle()
+	
 	if !_is_emoting():
-		translate(input_vector * speed * delta)
+		global_position = global_position.move_toward(global_position + (input_vector * 100.0), speed * delta)
 	elif input_vector != Vector2.ZERO:
-		if is_talking:
-			_talk(input_vector)
 		if is_pivoting:
 			_pivot(input_vector.x * delta)
 		if is_color_change:
 			_change_color(input_vector)
 		_change_scale(input_vector)
-
-func _talk(input_vector: Vector2):
-	words.direction = input_vector
 
 func _pivot(momentum: float):
 	_orbit(rotation + (momentum * rotate_speed))
@@ -129,13 +137,23 @@ func _input(event: InputEvent) -> void:
 			JOY_BUTTON_A:
 				is_squeezing = event.pressed
 			JOY_BUTTON_B:
-				#is_pivoting = event.pressed
 				is_talking = event.pressed
 			JOY_BUTTON_X:
 				is_flating = event.pressed
 			JOY_BUTTON_Y:
 				is_color_change = event.pressed
+			JOY_BUTTON_RIGHT_SHOULDER:
+				shake()
 
+func shake():
+	var tween = create_tween()
+	tween.tween_method(_shake_step, 1.0, 0.0, 2.0)
+	if (segments):
+		await get_tree().create_timer(.2).timeout
+		segments.shake()
+
+func _shake_step(f: float):
+	body.position = Global.random_vector2() * f * 3.0
 
 func _orbit(rot: float):
 	# Translate the node to the pivot point

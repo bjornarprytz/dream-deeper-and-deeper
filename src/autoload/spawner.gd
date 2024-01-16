@@ -19,8 +19,8 @@ var bugs: Node2D
 @onready var _seed_spawner = preload("res://critters/tokens/seed.tscn")
 
 @onready var _critter_spawners : Array[PackedScene] = [
-	_circ_spawner,
-	_tri_spawner,
+	#_circ_spawner,
+	#_tri_spawner,
 	_quad_spawner
 ]
 
