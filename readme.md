@@ -45,14 +45,23 @@ Transitions between the worlds should be related to the magic. Maybe the player 
 - Mechanics
   - Gather color drops
   - Grow the Catterpillar: Zoom out
-  - Create portal
 - Sound Design
   - Plants
+    - Squeak
+    - Maraccas
   - Seeds
+    - Pop
   - Critters
-  - Emotes
-  - Music
+    - Moo
+    - Baaah
   - Bugs
+    - Buzz
+  - Music
+
+### Bugs
+
+- Fix stutter when many plants
+- Make use of poop
 
 ### Behaviour
 
