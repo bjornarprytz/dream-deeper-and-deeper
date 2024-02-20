@@ -24,15 +24,6 @@ Movement should be very relaxed at first, but as the player moves deeper into th
 
 Transitions between the worlds should be related to the magic. Maybe the player needs to fill a few flasks of paint in order to draw the portal they need. Maybe they get to mix the colors for the next palette, and the palette is used as the seed for the procedural generation.
 
-#### Fauna
-
-- Bug
-  - Buzzes around on vector paths
-  - Lands on flowers
-  - Interaction with the player?
-
-#### Flora
-
 ## TODO
 
 - Palette
@@ -58,14 +49,11 @@ Transitions between the worlds should be related to the magic. Maybe the player 
     - Buzz
   - Music
 
+- Push release with `./push_release.sh`
+
 ### Bugs
 
 - Fix stutter when many plants
-- Make use of poop
-
-### Behaviour
-
-- Push release with `./push_release.sh`
 
 ### Nice to have
 
